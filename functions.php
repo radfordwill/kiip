@@ -31,7 +31,7 @@ if ( is_admin() ) {
 	wp_enqueue_style( 'load-fa', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
 	wp_enqueue_style( 'kiip-css', plugin_dir_url( __FILE__ ) . 'css/kiip-for-wp-public.css', 'all' );
 	wp_enqueue_script( 'kiip-ex', '//d3aq14vri881or.cloudfront.net/kiip.js', false );
-	wp_enqueue_script( 'kiip-in2', plugin_dir_url( __FILE__ ) . 'js/public.js', array( 'jquery' ), false );
+	wp_enqueue_script( 'kiip-for-wp-strict', plugin_dir_url( __FILE__ ) . 'js/public.js', array( 'jquery' ), false );
 	wp_enqueue_script( 'kiip-for-wp-public', plugins_url( 'kiip-for-wp' ) . '/js/kiip-for-wp-public.js', array( 'jquery' ), false );
 	//options passed to js	
 	/**/
@@ -43,7 +43,7 @@ if ( is_admin() ) {
 		$kiip_setClick = sanitize_html_class( get_option( 'test_mode_set_click' ) );
 		$kiip_setContainer = sanitize_html_class( get_option( 'test_mode_set_container' ) );
 		$kiip_onScroll = sanitize_text_field( get_option( 'test_mode_onscroll' ) );
-		// add setcontainer
+		// add data to pass in js
 		$dataToBePassed = array(
 			'kiipsetTestMode' => $kiip_testmode,
 			'kiipsetpostMoment' => $kiip_postmoment,
@@ -52,7 +52,8 @@ if ( is_admin() ) {
 			'kiipsetClick' => $kiip_setClick,
 			'kiipsetContainer' => $kiip_setContainer,
 			'kiiponScroll' => $kiip_onScroll );
-		return $dataToBePassed;
+		
+		    return $dataToBePassed;
 	}
 	$kiip_op_data = kiip_op_data();
 	wp_localize_script( 'kiip-for-wp-public', 'php_vars', $kiip_op_data );
