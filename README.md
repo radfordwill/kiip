@@ -1,2 +1,2 @@
-# Kiip-plugin-for-Wordpress
-Kiip.me plugin for Wordpress. ad revenue, rewards, user retention.
+# Kiip-for-Wordpress
+kiip.me plugin for Wordpress. Create rewards and user retention. Make ad revenue.

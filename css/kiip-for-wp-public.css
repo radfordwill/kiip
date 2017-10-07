@@ -1,0 +1,98 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+.notification {
+	position:fixed;
+	left:0;
+	bottom:0;
+	right:0;
+	height:85px;
+	background:#27a7af url(../assets/images/bg-notification.png) 1% 50%;
+
+	-webkit-background-size:316px 79px;
+	   -moz-background-size:316px 79px;
+	    -ms-background-size:316px 79px;
+	     -o-background-size:316px 79px;
+	        background-size:316px 79px;
+
+	cursor:pointer;
+
+	-webkit-tap-highlight-color:transparent;
+	   -moz-tap-highlight-color:transparent;
+	    -ms-tap-highlight-color:transparent;
+	     -o-tap-highlight-color:transparent;
+	        tap-highlight-color:transparent;
+
+	-webkit-transition:-webkit-transform 200ms ease-out;
+	   -moz-transition:   -moz-transform 200ms ease-out;
+	    -ms-transition:    -ms-transform 200ms ease-out;
+	     -o-transition:     -o-transform 200ms ease-out;
+	        transition:        transform 200ms ease-out;
+
+	-webkit-transform:translate3d(0,120px,0);
+	   -moz-transform:translate3d(0,120px,0);
+	    -ms-transform:translate3d(0,120px,0);
+	     -o-transform:translate3d(0,120px,0);
+	        transform:translate3d(0,120px,0);
+}
+
+.notification:active,
+.notification:active .column:before {
+	background-color:#24969d;
+}
+
+.notification.show {
+	-webkit-transform:translate3d(0,0,0);
+	   -moz-transform:translate3d(0,0,0);
+	    -ms-transform:translate3d(0,0,0);
+	     -o-transform:translate3d(0,0,0);
+	        transform:translate3d(0,0,0);
+}
+
+.notification .column {
+	position:relative;
+	max-width:376px;
+	margin:0 auto;
+	padding-top:30px;
+}
+
+.notification .column:before {
+	content:'';
+	position:absolute;
+	z-index:0;
+	top:-35px;
+	left:50%;
+	margin-left:-43px;
+	width:86px;
+	height:83px;
+	background:#27a7af url(../assets/images/icon-present.png) no-repeat 50% 50%;
+
+	-webkit-background-size:45px 43px;
+	   -moz-background-size:45px 43px;
+	    -ms-background-size:45px 43px;
+	     -o-background-size:45px 43px;
+	        background-size:45px 43px;
+
+	-webkit-border-radius:100%;
+	   -moz-border-radius:100%;
+	    -ms-border-radius:100%;
+	     -o-border-radius:100%;
+	        border-radius:100%;
+}
+
+.notification .column h6 {
+	position:relative;
+	z-index:1;
+	margin:0;
+	color:#fff;
+	font-size:18px;
+	text-align:center;
+	font-weight:100;
+}
+
+.notification .column h6 strong {
+	display:block;
+	font-size:16px;
+	text-transform:uppercase;
+}
