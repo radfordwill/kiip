@@ -10,12 +10,12 @@
  * @wordpress-plugin
  * Plugin Name:       Kiip For WP
  * Plugin URI:        http://radford.online/
- * Description:       This is a short description of what this plugin does.
+ * Description:       Kiip.me plugin for Wordpress. Make ad revenue. Create rewards and user retention.
  * Version:           1.0.2
  * Author:            Will Radford
  * Author URI:        http://radford.online/
  * License:           GPL-2.0
- * License URI:       http//www.gnu.org/licenses/gpl-3.0.txt
+ * License URI:       http//www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       kiip-for-wp
  * Domain Path:       /languages
  */
