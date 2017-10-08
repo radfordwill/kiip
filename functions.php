@@ -36,6 +36,7 @@ if ( is_admin() ) {
 	//options passed to js	
 	/**/
 	function kiip_op_data() {
+		$kiip_publicKey = sanitize_text_field( get_option( 'public_key' ) );
 		$kiip_testmode = sanitize_html_class( get_option( 'is_test_mode' ), 'off' );
 		$kiip_postmoment = sanitize_text_field( get_option( 'test_mode_post_moment' ) );
 		$kiip_email = sanitize_email( get_option( 'test_mode_email' ) );
@@ -45,6 +46,7 @@ if ( is_admin() ) {
 		$kiip_onScroll = sanitize_text_field( get_option( 'test_mode_onscroll' ) );
 		// add data to pass in js
 		$dataToBePassed = array(
+			'kiipsetPublickey' => $kiip_publicKey,
 			'kiipsetTestMode' => $kiip_testmode,
 			'kiipsetpostMoment' => $kiip_postmoment,
 			'kiipsetEmail' => $kiip_email,

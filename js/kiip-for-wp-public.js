@@ -5,13 +5,13 @@
  * Current Jquery loaded with this script.
  *
  **/
-// test further
+// test use strict further
 'use strict';
-
+// var
 var php_vars, Kiip, phpvarskiipsetTestMode, kiiponScroll;
 var phpvarskiipsetTestMode = php_vars.kiipsetTestMode;
-//var phpvarskiipsetContainer = php_vars.kiipsetContainer;
-var kiipInstance = new Kiip('cb267dc06064273f4e4167732b7afdd4', '', '');
+var phpvarskiipsetPublickey = php_vars.kiipsetPublickey;
+var kiipInstance = new Kiip(phpvarskiipsetPublickey, '', '');
 var kiipsetClick = php_vars.kiipsetClick;
 var kiipsetContainer = php_vars.kiipsetContainer;
 var kiiponScroll = php_vars.kiiponScroll;
