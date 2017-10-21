@@ -50,7 +50,7 @@ jQuery(document).ready(function () {
         if (!unit) {
             return;
         }
-    });
+    }).setTestMode();
     window.homeInit(kiip);
     return;
 });

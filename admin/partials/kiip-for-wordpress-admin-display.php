@@ -1,5 +1,4 @@
 <?php
-
 // If this file is called directly, abort.
 if ( !defined( 'WPINC' ) ) {
     die;
@@ -44,12 +43,10 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
             </div>
             <div class="col-lg-4">
                 <table style="text-align:center">
-
                     <?php /* Donation Form */ ?>
                     <div id="submitdiv" class="form" style="padding: 6px; margin-top:20px; border-left: 5px solid   #FF0000;">
                         <hr/>
                         <h3><strong style="color:#000000"><?php _e('Please consider making a donation so I can keep up support for this plugin. You can donate any amount.', 'ffm')?></strong></h3>
-
                         <form name="_xclick" action="https://www.paypal.com/yt/cgi-bin/webscr" method="post">
                             <input type="hidden" name="cmd" value="_xclick">
                             <input type="hidden" name="business" value="power.sell2002@gmail.com">
@@ -108,7 +105,6 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 			else echo "value='on' ". " checked " ?> /">
                             </td>
                         </tr>
-                      
                         <tr valign="top">
                             <th scope="row">Test Mode Email</th>
                             <td><input type="text" name="test_mode_email" value="<?php echo esc_attr( get_option('test_mode_email') ); ?>"/>
