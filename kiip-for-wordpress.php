@@ -125,13 +125,13 @@ class kiip_for_wordpress {
 
             // add settings to db from settings api
             $this->register_settings();
-          
+
             if ( is_multisite() ) {
                 $admin_menu = 'network_admin_menu';
             } else {
-                $admin_menu = 'admin_menu';                
+                $admin_menu = 'admin_menu';
             }
-            
+
             register_activation_hook( __FILE__, array( & $this, 'activate' ) );
             if ( $this->options[ 'deactivate_deletes_data' ] ) {
                 register_deactivation_hook( __FILE__, array( & $this, 'deactivate' ) );
@@ -171,7 +171,7 @@ class kiip_for_wordpress {
     /*
      * ===== ACTION & FILTER CALLBACK METHODS =====
      */
-    
+
     /**
      * A centralized way to load the plugin's textdomain for
      * internationalization
@@ -388,9 +388,9 @@ class kiip_for_wordpress {
         } else {
             $name = 'fullscreen';
         }
-        $file_name = 'kiip-for-wordpress-public_' . $name;
+        $file_name = 'kiip-for-wordpress-public-' . $name;
         $this->enqueue_scripts_public( $file_name );
-        //return $file_name;
+        return $file_name;
     }
 
     public

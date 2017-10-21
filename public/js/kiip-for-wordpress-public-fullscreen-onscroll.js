@@ -44,24 +44,20 @@ jQuery(document).ready(function ($) {
     // @TODO get page id from php classes and pass it to pageID
     var kiip;
     $(window).scroll(function () {
-        if (kiiponScroll === 'on') {
-            if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-                $(window).unbind('scroll');
-                // alert("near bottom!");
-                window.homeInit = function (kiipInstance) {
-                    kiipInstance.postMoment(kiipsetPostmoment);
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+            $(window).unbind('scroll');
+            // alert("near bottom!");
+            window.homeInit = function (kiipInstance) {
+                kiipInstance.postMoment(kiipsetPostmoment);
 
-                };
-
-                kiip = new Kiip(kiipsetPublickey, function (unit) {
-                    if (!unit) {
-                        return;
-                    }
-
-                });
-                window.homeInit(kiip);
-                return;
-            }
+            };
+            kiip = new Kiip(kiipsetPublickey, function (unit) {
+                if (!unit) {
+                    return;
+                }
+            }).setTestMode();
+            window.homeInit(kiip);
+            return;
         }
     });
 });
