@@ -388,7 +388,8 @@ class kiip_for_wordpress {
         }
         $file_name = 'kiip-for-wordpress-public_' . $name;
         $this->enqueue_scripts_public( $file_name );
-        //return $file_name;
+        //return self::FOLDERNAME.'/'.$file_name;
+        
     }
 
     public
