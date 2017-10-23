@@ -19,11 +19,7 @@ var kiipsetemail = php_vars.kiipsetemail;
 var kiipsetUserid = php_vars.kiipsetUserid;
 //var kiipsetClick = php_vars.kiipsetClick;
 var kiipsetContainer = php_vars.kiipsetContainer;
-var kiiponScroll = php_vars.kiiponScroll;
-// all page and or all posts
-//var kiipallPosts = php_vars.kiipallPosts;
-//var kiipallPages = php_vars.kiipallPages;
-//var kiipallPopups = php_vars.kiipallPopups;
+
 //  if kiip is in testmode
 if (kiipsetTestmode === 'on') {
     kiipInstance.setTestMode();
@@ -53,6 +49,7 @@ jQuery(document).ready(function ($) {
             };
             kiip = new Kiip(kiipsetPublickey, function (unit) {
                 if (!unit) {
+                    alert("near bottom!");
                     return;
                 }
             }); window.homeInit(kiip);

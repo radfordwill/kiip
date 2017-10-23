@@ -48,7 +48,7 @@ jQuery(document).ready(function () {
     pageID = document.body.className;
 
     //alert(pageID.substring(0, 4));
-    if (1 === 1) {
+   // if (1 === 1) {
 
         window.homeInit = function (kiipInstance) {
             createContainer(kiipInstance);
@@ -65,9 +65,9 @@ jQuery(document).ready(function () {
             if (!unit) {
                 return;
             }
-
-        });
+        }
+            );
         window.homeInit(kiip);
         return;
-    }
+    //}
 });

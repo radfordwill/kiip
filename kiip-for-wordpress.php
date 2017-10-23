@@ -266,7 +266,7 @@ class kiip_for_wordpress {
          * class.
          */
 
-        wp_enqueue_script( 'kiip-ex', '//d3aq14vri881or.cloudfront.net/kiip.js', false );
+            wp_enqueue_script( 'kiip-ex', '//d3aq14vri881or.cloudfront.net/kiip.js', false );
         if ( $file_name != '' ) {
             wp_enqueue_script( 'kiip-for-wp-public', plugin_dir_url( __FILE__ ) . 'public/js/' . $file_name . '.js', array( 'jquery' ), self::VERSION );
             wp_localize_script( 'kiip-for-wp-public', 'php_vars', $this->kiip_options_array() );
@@ -318,6 +318,9 @@ class kiip_for_wordpress {
          * class.
          */
         wp_enqueue_script( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/js/kiip-for-wordpress-admin.js', array( 'jquery' ), self::VERSION, false );
+        
+        wp_enqueue_script( self::NAME, plugins_url( 'kiip-for-wp' ). 'admin/js/run_prettify.js?skin=Sons-Of-Obsidian', array( 'jquery' ), self::VERSION, false );
+        ;
         
     }
 

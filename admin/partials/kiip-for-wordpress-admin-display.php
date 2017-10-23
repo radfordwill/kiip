@@ -15,7 +15,7 @@ if ( !defined( 'WPINC' ) ) {
  */
 
 /**
- * Provide a admin area view for the plugin
+ * Provide a admin area view for the plugin (WP CSS)
  *
  *
  * @package    Kiip_For_Wordpress
@@ -31,10 +31,10 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 
 ?> <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <!-- Bootstrap core CSS -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
 
 <!-- Custom styles\js for this page -->
-<link href="<?php echo plugins_url( 'kiip-for-wp' ); ?>/admin/css/prettify/themes/vibrant-ink.min.css?skin=Sons-Of-Obsidian" rel="stylesheet">
+
 
 <style>
     .body-kiip {
@@ -188,7 +188,6 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
     </footer>
 </div>
 <!-- Bootstrap core JavaScript -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 }</script>
