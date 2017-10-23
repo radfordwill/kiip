@@ -16,11 +16,8 @@ Use shortcodes to load kiip reward ads. There is a better readme coming soon.
 
 [kiip_ad_shortcode type="fullscreen"]
 
-
 [kiip_ad_shortcode type="fullscreen-onclick"]
 
-
 [kiip_ad_shortcode type="contained"]
-
 
 [kiip_ad_shortcode type="fullscreen-onscroll"]
