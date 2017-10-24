@@ -107,10 +107,12 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
             </div>
             
             <div class="col-lg-4 align-baseline">
-               <kbd>Shortcodes</kbd><p></p><kbd>Curenntly supported in posts and pages only</kbd>
-            <p></p>
-                <p data-height="205" data-theme-id="dark" data-slug-hash="rGgLbE" data-default-tab="html,result" data-user="radfordwill" data-embed-version="2" data-pen-title="rGgLbE" class="codepen">See the Pen <a href="https://codepen.io/radfordwill/pen/rGgLbE/">rGgLbE</a> by Will (<a href="https://codepen.io/radfordwill">@radfordwill</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+
+            <div class="alert"><p class="font-weight-bold">Kiip is a marketing and monetization platform unique in style and user reward platforms.</p> <p class="font-weight-bold">User retention is an important aspect for wordpress websites with subscribers, crm's and more.</p> <p class="font-weight-bold">Reward your users and monetize your website today!</p> <p class="font-weight-bold">Make ad revenue. Create rewards and user retention.</p> </div>
+               
                 
                 </div>
             
