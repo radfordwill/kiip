@@ -17,7 +17,7 @@ var kiipInstance = new Kiip(kiipsetPublickey, '', '');
 var kiipsetPostmoment = php_vars.kiipsetpostMoment;
 var kiipsetemail = php_vars.kiipsetemail;
 var kiipsetUserid = php_vars.kiipsetUserid;
-//var kiipsetClick = php_vars.kiipsetClick;
+var kiipsetClick = php_vars.kiipsetClick;
 var kiipsetContainer = php_vars.kiipsetContainer;
 //var kiiponScroll = php_vars.kiiponScroll;
 
