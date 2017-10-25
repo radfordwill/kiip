@@ -11,7 +11,7 @@
 // vars
 
 var php_vars, Kiip;
-var kiipsetTestmode = php_vars.kiipsetTestmode;
+var kiipsetTestMode = php_vars.kiipsetTestMode;
 var kiipsetPublickey = php_vars.kiipsetPublickey;
 var kiipInstance = new Kiip(kiipsetPublickey, '', '');
 var kiipsetPostmoment = php_vars.kiipsetpostMoment;
@@ -20,21 +20,20 @@ var kiipsetUserid = php_vars.kiipsetUserid;
 //var kiipsetClick = php_vars.kiipsetClick;
 var kiipsetContainer = php_vars.kiipsetContainer;
 //var kiiponScroll = php_vars.kiiponScroll;
-// all page and or all posts
-//var kiipallPosts = php_vars.kiipallPosts;
-//var kiipallPages = php_vars.kiipallPages;
-//var kiipallPopups = php_vars.kiipallPopups;
+
 //  if kiip is in testmode
-if (kiipsetTestmode === 'on') {
+if (kiipsetTestMode === 'on') {
     kiipInstance.setTestMode();
     kiipInstance.setEmail(kiipsetemail);
     kiipInstance.setUserId(kiipsetUserid);
-    kiipInstance.setContainer(kiipsetContainer);
+    kiipInstance.setContainer(kiipsetContainer);    
 }
 // kiip is in live mode
 else {
     kiipInstance.setContainer(kiipsetContainer);
 }
+//alert(php_vars.kiipsetTestMode);
+
 // trigger post moment on scrolling to the bottom
 // @TODO combine some functions 
 // @BUG :flat ads and pop up ads can't exist on same page, triggers same ad type instead of intended.
