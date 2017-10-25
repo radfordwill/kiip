@@ -1,4 +1,4 @@
-Kiip-for-Wordpress 1.0.3
+Kiip-for-Wordpress 3.1.1
 
 
 kiip.me plugin for Wordpress. 
