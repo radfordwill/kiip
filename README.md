@@ -20,21 +20,31 @@ platforms. User retention is an important aspect for Wordpress websites with sub
 
 
 Loads reward moment on page load.
+
 [kiip_ad_shortcode type="fullscreen"]
 
+
+============================================
 
 Loads full screen reward moment when users reach the bottom of the page..
 
 [kiip_ad_shortcode type="fullscreen-onscroll"]
 
+============================================
+
 Loads full screen reward moment with onclick element.
+
 
 [kiip_ad_shortcode type="fullscreen-onclick"]
 
 
 
+============================================
+
 Loads reward moment in a specified element with class entered in admin.
+
 [kiip_ad_shortcode type="contained"]
 
-
+ 
+============================================
 
