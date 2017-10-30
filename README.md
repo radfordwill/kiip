@@ -38,7 +38,6 @@ Loads full screen reward moment with onclick element.
 [kiip_ad_shortcode type="fullscreen-onclick"]
 
 
-
 ============================================
 
 Loads reward moment in a specified element with class entered in admin.
