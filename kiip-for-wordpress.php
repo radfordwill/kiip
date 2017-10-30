@@ -14,7 +14,7 @@ platforms. User retention is an important aspect for wordpress websites with sub
  * License: GPLv2
  * @package kiip-for-wordpress
  *
- * This plugin used the Object-Oriented Plugin Template Solution as a skeleton
+ * 
  *
  */
 
