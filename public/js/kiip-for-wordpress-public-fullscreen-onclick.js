@@ -43,7 +43,7 @@ jQuery(document).ready(function ($) {
     // @TODO get page id from php classes and pass it to pageID
     var kiip;
 
-    $(window).scroll(function () {
+   // $(window).scroll(function () {
         // trigger onclick element
         $((' .') + kiipsetClick).click(function (e) {
             e.preventDefault();
@@ -54,5 +54,5 @@ jQuery(document).ready(function ($) {
                 }
             });
         });
-    });
+   // });
 });
