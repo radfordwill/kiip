@@ -12,16 +12,12 @@ platforms. User retention is an important aspect for wordpress websites with sub
  * Author: Will Radford
  * Author URI: http:/radford.online
  * License: GPLv2
+ * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
  * @package kiip-for-wordpress
- *
- * 
+ * Text Domain:  kiip-for-wordpress
+ * Domain Path:  /languages
  *
  */
-
-/**
- * The instantiated version of this plugin's class
- */
-$GLOBALS[ 'kiip_for_wordpress' ] = new kiip_for_wordpress;
 
 /**
  *
@@ -31,30 +27,27 @@ $GLOBALS[ 'kiip_for_wordpress' ] = new kiip_for_wordpress;
  * since 1.0.3
  *
  */
+
 class kiip_for_wordpress {
 	/**
 	 * This plugin's identifier
 	 */
 	const ID = 'kiip-for-wordpress';
-	//define("ID", "kiip-for-wordpress", true);
 
 	/**
 	 * This plugin's name
 	 */
 	const NAME = 'Kiip for Wordpress';
-	//define("NAME", "Kiip for Wordpress", true);
 
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '1.0.3';
-	//define("VERSION", "1.0.3", true);
+	const VERSION = '3.1.2';
 
 	/**
 	 * This plugin's location
 	 */
 	const FOLDERNAME = 'kiip-for-wp';
-	//define("VERSION", "1.0.3", true);
 
 	/**
 	 * This plugin's table name prefix
@@ -232,22 +225,12 @@ class kiip_for_wordpress {
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
 	 * @since    1.0.0
-	 */
+	 */	
+	
 	public
 
-	function enqueue_styles_public( $file_name = '' ) {
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Kiip_For_Wordpress_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Kiip_For_Wordpress_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-		wp_enqueue_style( 'load-fa', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
+	function enqueue_styles_public() {
+
 		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'public/css/kiip-for-wordpress-public.css', array(), self::VERSION, 'all' );
 	}
 
@@ -256,15 +239,9 @@ class kiip_for_wordpress {
 	function enqueue_scripts_public( $file_name ) {
 
 		/**
-		 * This function is provided for demonstration purposes only.
+		 * Register the javascript for the public-facing side of the site.
 		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Kiip_For_Wordpress_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Kiip_For_Wordpress_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
+		 * @since    1.0.0
 		 */
 
 		wp_enqueue_script( 'kiip-ex', '//d3aq14vri881or.cloudfront.net/kiip.js', false );
@@ -326,13 +303,6 @@ class kiip_for_wordpress {
 	}
 
 	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-
-
-	/**
 	 * Retrieve the meta data in an array for the plugin.
 	 *
 	 * @since     1.0.0
@@ -380,7 +350,7 @@ class kiip_for_wordpress {
 	public
 
 	function kiip_ad_shortcodes( $atts, $content ) {
-		// $atts = $this->normalize_attributes($atts);
+		$atts = $this->normalize_attributes( $atts );
 		// Attributes		
 		$atts = shortcode_atts(
 			array(
@@ -416,3 +386,9 @@ class kiip_for_wordpress {
 		return $atts;
 	}
 }
+
+/**
+ * The instantiated version of this plugin's class
+ */
+
+$kiip_for_wordpress = new kiip_for_wordpress();
