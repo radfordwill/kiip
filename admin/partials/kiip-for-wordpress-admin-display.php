@@ -201,13 +201,12 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 					<p></p>
 					<pre class="prettyprint linenums kbd">
 						<p>&#91;kiip_ad_shortcode type="fullscreen"&#93;</p>
-
-						<p>&#91;kiip_ad_shortcode type="fullscreen-onclick"&#93;</p>
-
+																		
 						<p>&#91;kiip_ad_shortcode type="contained"&#93;</p>
-
-						<p>&#91;kiip_ad_shortcode type="fullscreen-onscroll"&#93;</p>
-					</pre>
+				    				    					
+					    <p>&#91;kiip_ad_shortcode type="fullscreen-onscroll"&#93;</p>
+					    
+						<p>&#91;kiip_ad_shortcode type="fullscreen-onclick"&#93;</p></pre>
 					<p>
 					</p>
 				</div>
@@ -222,14 +221,14 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 				<div class="alert">
 					<p class="font-weight-bold">Fullscreen Moment- Opens a kiip moment immediately when the visitor opens the page. </p>
 					<p class="font-weight-bold">&nbsp;</p>
-					<p class="font-weight-bold">Onclick Moment- Add an element with the class you define in the admin and make anything a kiip poptart(popup) moment.</p>
+					<p class="font-weight-bold">Container Moment- Loads a kiip moment in a smaller container. Ideal for html widgets in sidebars.</p>
 					<p class="font-weight-bold">&nbsp;</p>
 					<p class="font-weight-bold">Onscroll Moment- Opens a moment immediately after the visitor get to the bottom of the page. </p>
 					<p class="font-weight-bold">&nbsp;</p>
-					<p class="font-weight-bold">Container Moment- Loads a kiip moment in an element you define in the admin. Add the class to a link or other tag in the wordpress editor.</p>
+					<p class="font-weight-bold">Onclick Moment- Add a link or a button with the class you define in the admin and make anything a kiip poptart(popup) moment. Add a class to the link or button in the wordpress editor eg. <i>class = "kiip-moment"</i>
+					</p>
 					<p class="font-weight-bold">&nbsp;</p>
 				</div>
-
 
 			</div>
 
@@ -241,6 +240,7 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 	<a href="https://app.kiip.me/register/dev_verify" target="new">Sign up for the kiip.me developer key</a>
 	</h3>
 			
+
 
 
 			</div>
@@ -287,11 +287,6 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 						<tr valign="top">
 							<th scope="row">Clicklable Element Class</th>
 							<td><input type="text" name="test_mode_set_click" value="<?php echo esc_attr( get_option('test_mode_set_click') ); ?>"/>
-							</td>
-						</tr>
-						<tr valign="top">
-							<th scope="row">Element Class Ad Container</th>
-							<td><input type="text" name="test_mode_set_container" value="<?php echo esc_attr( get_option('test_mode_set_container') ); ?>"/>
 							</td>
 						</tr>
 					</table>
