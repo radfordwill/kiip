@@ -8,14 +8,14 @@ if ( !defined( 'WPINC' ) ) {
  * Provide a admin area view for the plugin
  *
  * @link       http://radford.online/
- * @since      1.0.2
+ * @since      3.1.1
  *
  * @package    Kiip_For_Wordpress
  * @subpackage Kiip_For_Wordpress/public
  */
 
 /**
- * Provide a admin area view for the plugin (WP CSS)
+ * Provides an admin area view for the plugin (WP CSS)
  *
  *
  * @package    Kiip_For_Wordpress
@@ -158,6 +158,10 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 		<div class="row">
 			<div class="col-lg-4">
 				<img class="img-thumbnail" alt="kiip-for-wp" src="<?php echo plugins_url( 'kiip-for-wp' ); ?>/assets/images/kiip-for-wp.png" width="150" height="150" alt=""/>
+				<p class="font-weight-bold small">Kiip is a marketing and monetization platform unique in style and user reward platforms.</p>
+				<p class="font-weight-bold small">User retention is an important aspect for wordpress websites with subscribers, crm's and more.</p>
+				<p class="font-weight-bold small">Reward your users and monetize your website today!</p>
+				<p class="font-weight-bold small">Make ad revenue. Create rewards and user retention.</p>
 			</div>
 			<div class="col-lg-4">
 				<table style="text-align:center">
@@ -215,13 +219,15 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 			<div class="col-lg-4 align-baseline">
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-
 				<div class="alert">
-					<p class="font-weight-bold">Kiip is a marketing and monetization platform unique in style and user reward platforms.</p>
-					<p class="font-weight-bold">User retention is an important aspect for wordpress websites with subscribers, crm's and more.</p>
-					<p class="font-weight-bold">Reward your users and monetize your website today!</p>
-					<p class="font-weight-bold">Make ad revenue. Create rewards and user retention.</p>
+					<p class="font-weight-bold">Fullscreen Moment- Opens a kiip moment immediately when the visitor opens the page. </p>
+					<p class="font-weight-bold">&nbsp;</p>
+					<p class="font-weight-bold">Onclick Moment- Add an element with the class you define in the admin and make anything a kiip poptart(popup) moment.</p>
+					<p class="font-weight-bold">&nbsp;</p>
+					<p class="font-weight-bold">Onscroll Moment- Opens a moment immediately after the visitor get to the bottom of the page. </p>
+					<p class="font-weight-bold">&nbsp;</p>
+					<p class="font-weight-bold">Container Moment- Loads a kiip moment in an element you define in the admin. Add the class to a link or other tag in the wordpress editor.</p>
+					<p class="font-weight-bold">&nbsp;</p>
 				</div>
 
 
@@ -235,6 +241,7 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 	<a href="https://app.kiip.me/register/dev_verify" target="new">Sign up for the kiip.me developer key</a>
 	</h3>
 			
+
 
 			</div>
 		</div>

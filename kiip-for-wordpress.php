@@ -11,7 +11,7 @@ platforms. User retention is an important aspect for wordpress websites with sub
  *
  * Author: Will Radford
  * Author URI: http:/radford.online
- * License: GPLv2
+ * License: GPLv3
  * @package kiip-for-wordpress
  *
  * 
