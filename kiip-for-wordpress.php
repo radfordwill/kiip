@@ -199,11 +199,6 @@ class kiip_for_wordpress {
 		register_setting( 'kiip-settings-group', 'test_mode_userid' );
 		register_setting( 'kiip-settings-group', 'test_mode_post_moment' );
 		register_setting( 'kiip-settings-group', 'test_mode_set_click', $checkbox_defaults );
-		register_setting( 'kiip-settings-group', 'test_mode_set_container' );
-		register_setting( 'kiip-settings-group', 'test_mode_onscroll', $checkbox_defaults );
-		register_setting( 'kiip-settings-group', 'test_mode_all_pages', $checkbox_defaults );
-		register_setting( 'kiip-settings-group', 'test_mode_all_posts', $checkbox_defaults );
-		register_setting( 'kiip-settings-group', 'test_mode_popups', $checkbox_defaults );
 	}
 
 
@@ -243,7 +238,8 @@ class kiip_for_wordpress {
 		 *
 		 * @since    1.0.0
 		 */
-
+        // Call kiip.me web api to load ads. Admin settings contain required api key(s) and pertinent data. 
+		// Data is returned in a function in this class'
 		wp_enqueue_script( 'kiip-ex', '//d3aq14vri881or.cloudfront.net/kiip.js', false );
 		if ( $file_name != '' ) {
 			wp_enqueue_script( 'kiip-for-wp-public', plugin_dir_url( __FILE__ ) . 'public/js/' . $file_name . '.js', array( 'jquery' ), self::VERSION );
@@ -271,10 +267,9 @@ class kiip_for_wordpress {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/kiip-for-wordpress-admin.css', array(), self::VERSION, 'all' );
-		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/prettify/themes/vibrant-ink.min.css', array(), self::VERSION, 'all' );
-		wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
-
+		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/kiip-for-wordpress-admin.css', array(), self::VERSION, 'all' );		
+		wp_enqueue_style( 'bootstrap-3.3.7', plugin_dir_url( __FILE__ ) . 'admin/css/bootstrap/bootstrap.min.css' );
+		wp_enqueue_style( 'prettify', plugin_dir_url( __FILE__ ) . 'admin/css/prettify/prettify.css' );
 	}
 
 	/**
@@ -297,9 +292,10 @@ class kiip_for_wordpress {
 		 * class.
 		 */
 		wp_enqueue_script( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/js/kiip-for-wordpress-admin.js', array( 'jquery' ), self::VERSION, false );
-
-		wp_enqueue_script( self::NAME, plugins_url( 'kiip-for-wp' ) . 'admin/js/run_prettify.js?skin=Sons-Of-Obsidian', array( 'jquery' ), self::VERSION, false );;
-
+        // Google Prettify JavaScript
+		wp_enqueue_script( 'code-prettify', plugin_dir_url( __FILE__ ) . 'admin/js/prettify/run_prettify.js', '', '', false );
+		// popper.min.js
+		wp_enqueue_script( 'popper-1.12.5', plugin_dir_url( __FILE__ ) .'admin/js/bootstrap/popper.min.js', array( 'jquery' ), self::VERSION, false );
 	}
 
 	/**
@@ -317,7 +313,6 @@ class kiip_for_wordpress {
 		$kiip_email = sanitize_email( get_option( 'test_mode_email' ) );
 		$kiip_userId = sanitize_text_field( get_option( 'test_mode_userid' ) );
 		$kiip_setClick = sanitize_html_class( get_option( 'test_mode_set_click' ) );
-		$kiip_onScroll = sanitize_text_field( get_option( 'test_mode_onscroll' ) );
 		// add data to pass in js
 		$dataToBePassed = array(
 			'kiipsetPublickey' => $kiip_publicKey,
@@ -325,9 +320,8 @@ class kiip_for_wordpress {
 			'kiipsetpostMoment' => $kiip_postmoment,
 			'kiipsetEmail' => $kiip_email,
 			'kiipsetUserId' => $kiip_userId,
-			'kiipsetClick' => $kiip_setClick,
-			'kiiponScroll' => $kiip_onScroll );
-
+			'kiipsetClick' => $kiip_setClick);
+		
 		return $dataToBePassed;
 	}
 
@@ -362,7 +356,7 @@ class kiip_for_wordpress {
 
 		if ( $atts[ 'type' ] == 'contained' ) {
 			// maybe add this in sooner
-			echo '<span id="kiip-moment-container"></span>';
+			echo '<span id=\'kiip-moment-container\'></span>';
 		}
 		if ( $atts[ 'type' ] == true ) {
 			$name = $atts[ 'type' ];

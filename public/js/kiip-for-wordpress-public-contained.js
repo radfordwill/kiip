@@ -28,7 +28,7 @@ if (kiipsetTestMode === 'on') {
 //else {
 //}
 
-// kiip moment in a container specified by class
+// kiip moment in a container specified by id
 // @TODO combine some functions 
 jQuery(document).ready(function () {
 	// a lot of this came from Home.js etc from a kiip web demo	

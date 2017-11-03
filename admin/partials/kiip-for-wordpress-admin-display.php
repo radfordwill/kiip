@@ -29,128 +29,8 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 
 
 
-?> <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<!-- Bootstrap core CSS -->
+?> <!-- This file  primarily consists of HTML with a little bit of PHP. -->
 
-
-<!-- Custom styles\js for this page -->
-
-
-<style>
-		.body-kiip {
-		padding-top: 54px;
-	}
-	
-	.kwd {
-		color: #93C763
-	}
-	
-	.com {
-		color: #66747B
-	}
-	
-	.typ {
-		color: #678CB1
-	}
-	
-	.lit {
-		color: #FACD22
-	}
-	
-	.tag {
-		color: #8AC763
-	}
-	
-	.atn {
-		color: #E0E2E4
-	}
-	
-	.dec {
-		color: purple
-	}
-	
-	pre.prettyprint {
-		border: 0 solid #888
-	}
-	
-	ol.linenums {
-		margin-top: 0;
-		margin-bottom: 0
-	}
-	
-	.prettyprint {
-		background: #000
-	}
-	
-	li.L0,
-	li.L1,
-	li.L2,
-	li.L3,
-	li.L4,
-	li.L5,
-	li.L6,
-	li.L7,
-	li.L8,
-	li.L9 {
-		color: #555;
-		list-style-type: decimal
-	}
-	
-	li.L1,
-	li.L3,
-	li.L5,
-	li.L7,
-	li.L9 {
-		background: #111
-	}
-	
-	.str,
-	.atv {
-		color: #EC7600
-	}
-	
-	.pun,
-	.pln {
-		color: #F1F2F3
-	}
-	
-	@media print {
-		.com {
-			color: #600;
-			font-style: italic
-		}
-		.typ {
-			color: #404;
-			font-weight: 700
-		}
-		.lit {
-			color: #044
-		}
-		.pun {
-			color: #440
-		}
-		.pln {
-			color: #000
-		}
-		.atn {
-			color: #404
-		}
-		.str,
-		.atv {
-			color: #060
-		}
-		.kwd,
-		.tag {
-			color: #006;
-			font-weight: 700
-		}
-	}
-	
-	.bootstrap-wrapper {
-		@import (less) url('bootstrap.min.css');
-</style>
-
-</style>
 
 <div class="wrap body-kiip">
 	<!-- Content -->
@@ -168,7 +48,7 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 					<?php /* Donation Form */ ?>
 					<div id="submitdiv" class="form" style="padding: 6px; margin-top:20px; border-left: 5px solid   #FF0000;">
 						<hr/>
-						<h3><strong style="color:#000000"><?php _e('Please consider making a donation so I can keep up support for this plugin. You can donate any amount.', 'ffm')?></strong></h3>
+						<h3 class="font-weight-bold"><?php echo 'Please consider making a donation so I can keep up support for this plugin. You can donate any amount.';?></h3>
 						<form name="_xclick" action="https://www.paypal.com/yt/cgi-bin/webscr" method="post">
 							<input type="hidden" name="cmd" value="_xclick">
 							<input type="hidden" name="business" value="power.sell2002@gmail.com">
@@ -196,17 +76,13 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 		<div class="row">
 
 			<div class="col-lg-4">
-				<div class="prettify"><kbd>Shortcodes</kbd>
-					<p></p><kbd>Curenntly supported in posts and pages only</kbd>
+				<div class="prettify"><kbd>Shortcodes</kbd><br><p>NEW!<br> The container moment shortcode:<br><code>&#91;kiip_ad_shortcode type="contained"&#93;</code> <br> This shortcode will work in most widgets that accept html or just shortcodes. <br>The other three shortcodes are supported in posts and pages only for now.</p>
 					<p></p>
 					<pre class="prettyprint linenums kbd">
-						<p>&#91;kiip_ad_shortcode type="fullscreen"&#93;</p>
-																		
-						<p>&#91;kiip_ad_shortcode type="contained"&#93;</p>
-				    				    					
-					    <p>&#91;kiip_ad_shortcode type="fullscreen-onscroll"&#93;</p>
-					    
-						<p>&#91;kiip_ad_shortcode type="fullscreen-onclick"&#93;</p></pre>
+<p>&#91;kiip_ad_shortcode type="fullscreen"&#93;</p>
+<p>&#91;kiip_ad_shortcode type="contained"&#93;</p>
+<p>&#91;kiip_ad_shortcode type="fullscreen-onscroll"&#93;</p>
+<p>&#91;kiip_ad_shortcode type="fullscreen-onclick"&#93;</p></pre>
 					<p>
 					</p>
 				</div>
@@ -219,13 +95,13 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
 				<div class="alert">
-					<p class="font-weight-bold">Fullscreen Moment- Opens a kiip moment immediately when the visitor opens the page. </p>
+					<p class="font-weight-bold">1. Fullscreen Moment- Opens a kiip moment immediately when the visitor opens the page. </p>
 					<p class="font-weight-bold">&nbsp;</p>
-					<p class="font-weight-bold">Container Moment- Loads a kiip moment in a smaller container. Ideal for html widgets in sidebars.</p>
+					<p class="font-weight-bold">2. Container Moment- Loads a kiip moment in a smaller container. Ideal for html widgets in sidebars.</p>
 					<p class="font-weight-bold">&nbsp;</p>
-					<p class="font-weight-bold">Onscroll Moment- Opens a moment immediately after the visitor get to the bottom of the page. </p>
+					<p class="font-weight-bold">3. Onscroll Moment- Opens a moment immediately after the visitor get to the bottom of the page. </p>
 					<p class="font-weight-bold">&nbsp;</p>
-					<p class="font-weight-bold">Onclick Moment- Add a link or a button with the class you define in the admin and make anything a kiip poptart(popup) moment. Add a class to the link or button in the wordpress editor eg. <i>class = "kiip-moment"</i>
+					<p class="font-weight-bold">4. Onclick Moment- Add a link or a button with the class you define in the admin and make anything a kiip poptart(popup) moment. Add a class to the link or button in the wordpress editor eg. <i>class = "kiip-moment"</i>
 					</p>
 					<p class="font-weight-bold">&nbsp;</p>
 				</div>
@@ -308,12 +184,4 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 		</div>
 	</footer>
 </div>
-<!-- Bootstrap core JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-	}
-</script>
 
-<!--  Google Prettify JavaScript -->
-<script src="<?php echo plugins_url( 'kiip-for-wp' ); ?>/admin/js/run_prettify.js?skin=Sons-Of-Obsidian">
-</script>

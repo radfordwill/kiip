@@ -28,11 +28,5 @@
 	 * Although scripts in the WordPress core, Plugins and Themes may be
 	 * practising this, we should strive to set a better example in our own work.
 	 */
-
-    
-    $.getScript('./admin/js/run_prettify.js', function() {
-    alert('Load was performed.');
-});
-    
     
 })( jQuery );
