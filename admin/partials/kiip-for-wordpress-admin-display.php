@@ -37,7 +37,7 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4">
-				<img class="img-thumbnail" alt="kiip-for-wp" src="<?php echo plugins_url( 'kiip-for-wp' ); ?>/assets/images/kiip-for-wp.png" width="150" height="150" alt=""/>
+				<img class="img-thumbnail" alt="kiip-for-wp" src="<?php echo plugins_url( 'kiip' ); ?>/assets/images/kiip-for-wp.png" width="150" height="150" alt=""/>
 				<p class="font-weight-bold small">Kiip is a marketing and monetization platform unique in style and user reward platforms.</p>
 				<p class="font-weight-bold small">User retention is an important aspect for wordpress websites with subscribers, crm's and more.</p>
 				<p class="font-weight-bold small">Reward your users and monetize your website today!</p>
