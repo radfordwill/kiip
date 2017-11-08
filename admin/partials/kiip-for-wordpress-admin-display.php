@@ -6,12 +6,14 @@ if ( !defined( 'WPINC' ) ) {
 
 /**
  * Provide a admin area view for the plugin
- *
+ 
+ * Plugin URI: https://wordpress.org/plugins/kiip/
+ * Version: 3.1.2
+ * @author     Will Radford <radford.will@gmail.com>
  * @link       http://radford.online/
- * @since      3.1.1
+ * @since      1.0.0
  *
  * @package    Kiip_For_Wordpress
- * @subpackage Kiip_For_Wordpress/public
  */
 
 /**
@@ -19,36 +21,37 @@ if ( !defined( 'WPINC' ) ) {
  *
  *
  * @package    Kiip_For_Wordpress
- * @subpackage Kiip_For_Wordpress/public
- * @author     Will Radford <radford.will@gmail.com>
  */
 
 $plugin_data = new kiip_for_wordpress();
 $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugin_data->get_plugin_data()[ 'Version' ];
-
-
-
+$kiip_plugin_url = $plugin_data->kiip_the_url();
 
 ?> <!-- This file  primarily consists of HTML with a little bit of PHP. -->
-
-
 <div class="wrap body-kiip">
+<div class="row">
+<div class="col-lg-4">
+<h1><!-- place holder for admin notice --></h1>
+</div>
+</div>
 	<!-- Content -->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4">
-				<img class="img-thumbnail" alt="kiip-for-wp" src="<?php echo plugins_url( 'kiip' ); ?>/assets/images/kiip-for-wp.png" width="150" height="150" alt=""/>
+				<img class="img-thumbnail" alt="kiip-for-wp" src="<?php echo $kiip_plugin_url; ?>assets/images/kiip-for-wp.png" width="150" height="150" alt=""/>
 				<p class="font-weight-bold small">Kiip is a marketing and monetization platform unique in style and user reward platforms.</p>
 				<p class="font-weight-bold small">User retention is an important aspect for wordpress websites with subscribers, crm's and more.</p>
 				<p class="font-weight-bold small">Reward your users and monetize your website today!</p>
 				<p class="font-weight-bold small">Make ad revenue. Create rewards and user retention.</p>
-			</div>
+			</div>			
 			<div class="col-lg-4">
 				<table style="text-align:center">
 					<?php /* Donation Form */ ?>
 					<div id="submitdiv" class="form" style="padding: 6px; margin-top:20px; border-left: 5px solid   #FF0000;">
 						<hr/>
-						<h3 class="font-weight-bold"><?php echo 'Please consider making a donation so I can keep up support for this plugin. You can donate any amount.';?></h3>
+						<h3 class="font-weight-bold">
+							<?php echo 'Please consider making a donation so I can keep up support for this plugin. You can donate any amount.';?>
+						</h3>
 						<form name="_xclick" action="https://www.paypal.com/yt/cgi-bin/webscr" method="post">
 							<input type="hidden" name="cmd" value="_xclick">
 							<input type="hidden" name="business" value="power.sell2002@gmail.com">
@@ -62,42 +65,28 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 									<input class="input-group-sm" type="text" name="amount" value="" required="required" placeholder="Enter amount" class="regular-text ltr">
 								</td>
 								<td>
-									<input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make Donations with Paypal">
+									<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make Donations with Paypal">
 								</td>
 							</tr>
 					</div>
 				</table>
 				</form>
 			</div>
-
 		</div>
-
-
 		<div class="row">
-
-			<div class="col-lg-4">
-				<div class="prettify"><kbd>Shortcodes</kbd><br><p>NEW!<br> The container moment shortcode:<br><code>&#91;kiip_ad_shortcode type="contained"&#93;</code> <br> This shortcode will work in most widgets that accept html or just shortcodes. <br>The other three shortcodes are supported in posts and pages only for now.</p>
+			<div class="col-lg-4 ">
+				<div class="prettify"><kbd>Shortcodes</kbd><br>
+					<p>NEW!<br> The container moment shortcode:<br><code>&#91;kiip_ad_shortcode type="contained"&#93;</code> <br> This shortcode will work in most widgets that accept html or just shortcodes. <br>The other three shortcodes are supported in posts and pages only for now.</p>
 					<p></p>
-					<pre class="prettyprint linenums kbd">
-<p>&#91;kiip_ad_shortcode type="fullscreen"&#93;</p>
-<p>&#91;kiip_ad_shortcode type="contained"&#93;</p>
-<p>&#91;kiip_ad_shortcode type="fullscreen-onscroll"&#93;</p>
-<p>&#91;kiip_ad_shortcode type="fullscreen-onclick"&#93;</p></pre>
-					<p>
-					</p>
-				</div>
-
-
-
+					<pre class="prettyprint linenums"><?php print("&#91;kiip_ad_shortcode type=\"fullscreen\"&#93;\n<p>&#91;kiip_ad_shortcode type=\"contained\"&#93;\n<div>&#91;kiip_ad_shortcode type=\"fullscreen-onscroll\"&#93;</div>\n&#91;kiip_ad_shortcode type=\"fullscreen-onclick\"&#93;\n") ?></pre></div>
 			</div>
-
 			<div class="col-lg-4 align-baseline">
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
 				<div class="alert">
 					<p class="font-weight-bold">1. Fullscreen Moment- Opens a kiip moment immediately when the visitor opens the page. </p>
 					<p class="font-weight-bold">&nbsp;</p>
-					<p class="font-weight-bold">2. Container Moment- Loads a kiip moment in a smaller container. Ideal for html widgets in sidebars.</p>
+					<p class="font-weight-bold">2. Container Moment- Loads a kiip moment in a smaller container. Ideal for html widgets in sidebars. Sidebar must be a minimum of 400p px in width.</p>
 					<p class="font-weight-bold">&nbsp;</p>
 					<p class="font-weight-bold">3. Onscroll Moment- Opens a moment immediately after the visitor get to the bottom of the page. </p>
 					<p class="font-weight-bold">&nbsp;</p>
@@ -105,30 +94,28 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 					</p>
 					<p class="font-weight-bold">&nbsp;</p>
 				</div>
-
 			</div>
-
-
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
-				<h3 class="lead">
+				<p class="lead">
 	<a href="https://app.kiip.me/register/dev_verify" target="new">Sign up for the kiip.me developer key</a>
-	</h3>
-			
-
-
-
+	</p>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="mt-5">Kiip for WP Settings</h1>
-				<p class="small text-danger">*Required</p>
+			<div class="col-lg-12">			
+				<p class="lead"><strong>Kiip for WP Settings</strong></p>				
 				<form method="post" action="options.php">
 					<?php settings_fields( 'kiip-settings-group' ); ?>
 					<?php do_settings_sections( 'kiip-settings-group' ); ?>
 					<table class="form-table">
+						<tr valign="top">
+							<th scope="row"><span class="small text-danger">*Required</span>
+							</th>
+							<td>
+							</td>
+						</tr>
 						<tr valign="top">
 							<th scope="row">Kiip Developer Public Key<span class="small text-danger">*</span>
 							</th>
@@ -169,7 +156,7 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 					<?php submit_button(); ?>
 				</form>
 			</div>
-		</div>
+		</div>		
 	</div>
 	<footer class="footer">
 		<div class="container">
@@ -177,11 +164,17 @@ $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugi
 				<p class="font-weight-bold L9">
 					<?php echo( $plugin_name_version ); ?>
 				</p>
-
 				<p class="font-weight-bold L9">*kiip logos and branding are reg. trademarks of <a href="http://kiip.me" title="Kiip Inc website" target="_blank">Kiip, Inc.</a>
 				</p>
 			</span>
+			<?php if( isset($_GET['settings-updated']) ) { ?>		
+			<div class=”updated”>
+				<div class="notice notice-success is-dismissible col-xs-4">				
+					<strong>
+						<?php echo 'Settings Saved.'; ?>
+					</strong>
+				</div>
+		<?php } ?>
 		</div>
 	</footer>
 </div>
-

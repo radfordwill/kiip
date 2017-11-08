@@ -41,10 +41,11 @@ jQuery(document).ready(function () {
 		var container = document.createElement('span');
 		var list = document.getElementById('kiip-moment-container');
 		kiip.setContainer(container);
-		list.insertBefore(container, list.children[1]);
+		list.appendChild(container);
 	};
 	// notification is a future function
 	kiip = new Kiip(kiipsetPublickey, function (unit) {
+		
 		if (!unit) {
 			return;
 		}

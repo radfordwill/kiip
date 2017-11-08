@@ -1,4 +1,10 @@
 /**
- * All of the CSS for thepublic-facing functionality is
+ * All of the CSS for the public-facing functionality is
  * included in this file.
  */
+
+/* hacky way to do it but position is an issue in some themes */
+#kiip-moment-container {
+	width: 99% !important;
+	position: static !important;
+}

@@ -3,10 +3,10 @@
 /**
  * Plugin Name: Kiip For Wordpress
  *
- * Description: Kiip.me plugin for Wordpress. Kiip is a marketing and monetization platform unique in style and user reward platforms. User retention is an important aspect for wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention. 
+ * Description: Kiip.me plugin for Wordpress. Kiip is a marketing and monetization platform unique in style and user rewardplatforms. User retention is an important aspect for wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention. 
  *
  * Plugin URI: http://radford.online
- * Version: 3.1.2
+ * Version: 3.1.3
  *
  * Author: Will Radford
  * Author URI: http:/radford.online
@@ -41,16 +41,17 @@ class kiip_for_wordpress {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '3.1.2';
+	const VERSION = '3.1.3';
 
 	/**
-	 * This plugin's location
+	 * This plugin's folder name and location (also slug name for wordpress.org)
 	 */
 	const FOLDERNAME = 'kiip';
 
 	/**
 	 * This plugin's table name prefix
 	 * @var string
+	 * Future use
 	 */
 	protected $prefix = 'kiip_for_wordpress';
 
@@ -61,50 +62,6 @@ class kiip_for_wordpress {
 	 */
 	protected $loaded_textdomain = false;
 
-	/**
-	 * This plugin's options
-	 *
-	 * Options from the database are merged on top of the default options.
-	 *
-	 * @see kiip_for_wordpress::set_options()  to obtain the saved
-	 *      settings
-	 * @var array
-	 */
-	protected $options = array();
-
-	/**
-	 * This plugin's default options
-	 * @var array
-	 */
-	protected $options_default = array(
-		'deactivate_deletes_data' => 1,
-	);
-
-	/**
-	 * Our option name for storing the plugin's settings
-	 * @var string
-	 */
-	protected $option_name;
-
-	/**
-	 * Name, with $table_prefix, of the table tracking login failures
-	 * @var string
-	 */
-	protected $table_login;
-
-	/**
-	 * Our usermeta key for tracking when a user logged in
-	 * @var string
-	 */
-	protected $umk_login_time;
-
-	/**
-	 * Declares the WordPress action and filter callbacks
-	 *
-	 * @return void
-	 * @uses kiip_for_wordpress::initialize()  to set the object's
-	 *       properties
-	 */
 	public
 
 	function __construct() {
@@ -134,15 +91,14 @@ class kiip_for_wordpress {
 		} else {
 			// load public files
 			$this->enqueue_styles_public();
-			//$this->enqueue_scripts_public();
+			$this->enqueue_scripts_public();
 			// add shortcodes
 			add_shortcode( 'kiip_ad_shortcode', array( $this, 'kiip_ad_shortcodes' ) );
 		}
-
 	}
 
 	/**
-	 * Sets the object's properties and options
+	 * Sets the object's properties and options - Future use
 	 *
 	 * This is separated out from the constructor to avoid undesirable
 	 * recursion.  The constructor sometimes instantiates the admin class,
@@ -151,14 +107,12 @@ class kiip_for_wordpress {
 	 *
 	 * @return void
 	 *
-	 * @uses kiip_for_wordpress::set_options()  to replace the default
-	 *       options with those stored in the database
 	 */
 	protected
 
 	function initialize() {
+		//dummy
 		global $wpdb;
-
 	}
 
 	/*
@@ -183,7 +137,7 @@ class kiip_for_wordpress {
 	 * Save initial data for the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    string    Adds meta data for the plugin options. (need to add this to installer)
+	 * @return    string    Adds meta data for the plugin options. (TODO need to add this to install function instead)
 	 */
 	public
 
@@ -197,10 +151,15 @@ class kiip_for_wordpress {
 		register_setting( 'kiip-settings-group', 'test_mode_email' );
 		register_setting( 'kiip-settings-group', 'test_mode_userid' );
 		register_setting( 'kiip-settings-group', 'test_mode_post_moment' );
-		register_setting( 'kiip-settings-group', 'test_mode_set_click', $checkbox_defaults );
+		register_setting( 'kiip-settings-group', 'test_mode_set_click' );
 	}
 
-
+	/**
+	 * Add menu link with icon in admin
+	 *
+	 * @since    1.0.3
+	 * 
+	 */
 	// Admin Menu Main page.
 	public
 
@@ -218,9 +177,9 @@ class kiip_for_wordpress {
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
-	 * @since    1.0.0
-	 */	
-	
+	 * @since    1.0.2
+	 */
+
 	public
 
 	function enqueue_styles_public() {
@@ -235,9 +194,9 @@ class kiip_for_wordpress {
 		/**
 		 * Register the javascript for the public-facing side of the site.
 		 *
-		 * @since    1.0.0
+		 * @since    1.0.2
 		 */
-        // Call kiip.me web api to load ads. Admin settings contain required api key(s) and pertinent data. 
+		// Call kiip.me web api to load ads. Admin settings contain required api key(s) and pertinent data. 
 		// Data is returned in a function in this class'
 		wp_enqueue_script( 'kiip-ex', '//d3aq14vri881or.cloudfront.net/kiip.js', false );
 		if ( $file_name != '' ) {
@@ -250,23 +209,12 @@ class kiip_for_wordpress {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
-	 * @since    1.0.0
+	 * @since    1.0.2
 	 */
 	public
 
 	function enqueue_styles_admin() {
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Kiip_For_Wordpress_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Kiip_For_Wordpress_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/kiip-for-wordpress-admin.css', array(), self::VERSION, 'all' );		
+		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/kiip-for-wordpress-admin.css', array(), self::VERSION, 'all' );
 		wp_enqueue_style( 'bootstrap-3.3.7', plugin_dir_url( __FILE__ ) . 'admin/css/bootstrap/bootstrap.min.css' );
 		wp_enqueue_style( 'prettify', plugin_dir_url( __FILE__ ) . 'admin/css/prettify/prettify.css' );
 	}
@@ -274,27 +222,16 @@ class kiip_for_wordpress {
 	/**
 	 * Register the JavaScript for the admin area.
 	 *
-	 * @since    1.0.0
+	 * @since    1.0.2
 	 */
 	public
 
 	function enqueue_scripts_admin() {
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Kiip_For_Wordpress_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Kiip_For_Wordpress_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
 		wp_enqueue_script( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/js/kiip-for-wordpress-admin.js', array( 'jquery' ), self::VERSION, false );
-        // Google Prettify JavaScript
-		wp_enqueue_script( 'code-prettify', plugin_dir_url( __FILE__ ) . 'admin/js/prettify/run_prettify.js', '', '', false );
+		// Google Prettify JavaScript
+		wp_enqueue_script( 'code-prettify', plugin_dir_url( __FILE__ ) . 'admin/js/prettify/run_prettify.js??skin=sons-of-obsidian', '', '', false );
 		// popper.min.js
-		wp_enqueue_script( 'popper-1.12.5', plugin_dir_url( __FILE__ ) .'admin/js/bootstrap/popper.min.js', array( 'jquery' ), self::VERSION, false );
+		wp_enqueue_script( 'popper-1.12.5', plugin_dir_url( __FILE__ ) . 'admin/js/bootstrap/popper.min.js', array( 'jquery' ), self::VERSION, false );
 	}
 
 	/**
@@ -319,13 +256,13 @@ class kiip_for_wordpress {
 			'kiipsetpostMoment' => $kiip_postmoment,
 			'kiipsetEmail' => $kiip_email,
 			'kiipsetUserId' => $kiip_userId,
-			'kiipsetClick' => $kiip_setClick);
-		
+			'kiipsetClick' => $kiip_setClick );
+
 		return $dataToBePassed;
 	}
 
 	/**
-	 * Get version from class file public
+	 * Get version from public class file 
 	 *
 	 * @since    1.0.2
 	 * 
@@ -339,11 +276,19 @@ class kiip_for_wordpress {
 		return $plugin_data;
 	}
 
-	// [kiip_ad_shortcode fullscreen]	[kiip_ad_shortcode]
+	/**
+	 * Add shortcode support to the front end pages and html widgets
+	 *
+	 * @since    1.0.3
+	 * 
+	 */
 	public
 
 	function kiip_ad_shortcodes( $atts, $content ) {
-		$atts = $this->normalize_attributes( $atts );
+
+
+		// [kiip_ad_shortcode "fullscreen"]	[kiip_ad_shortcode "moment_type"]
+		$atts = $this->we_normalize_attributes( $atts );
 		// Attributes		
 		$atts = shortcode_atts(
 			array(
@@ -366,9 +311,16 @@ class kiip_for_wordpress {
 		$this->enqueue_scripts_public( $file_name );
 	}
 
+
+	/**
+	 * attribute function
+	 *
+	 * @since    1.0.3
+	 * 
+	 */
 	public
 
-	function normalize_attributes( $atts ) {
+	function we_normalize_attributes( $atts ) {
 		foreach ( $atts as $key => $value ) {
 			if ( is_int( $key ) ) {
 				$atts[ $value ] = true;
@@ -378,10 +330,139 @@ class kiip_for_wordpress {
 
 		return $atts;
 	}
+
+	/**
+	 * path to directory function
+	 *
+	 * @since    3.1.3
+	 * 
+	 */
+	public
+
+	function kiip_the_path() {
+		/* constant path to the folder. */
+		$path = trailingslashit( plugin_dir_path( __FILE__ ) );
+		return ( $path );
+	}
+
+	/**
+	 * url of plugin folder function
+	 *
+	 * @since    3.1.3
+	 * 
+	 */
+	public
+
+	function kiip_the_url() {
+		/* constant path to the folder. */
+		$url = trailingslashit( plugins_url( basename( __DIR__ ) ) );
+		return ( $url );
+	}
 }
 
 /**
- * The instantiated version of this plugin's class
+ * The instantiated version of this plugin's main class
  */
-
 $kiip_for_wordpress = new kiip_for_wordpress();
+
+
+/**
+	 * Widget class for kiip moment display
+	 * supported in wide sidebars for now
+	 * shortcode takes priority over this widget
+	 * 
+	 * @since 3.1.3	 
+	 */
+class kiip_Widget extends WP_Widget {
+
+	// Set up the widget name and description.
+	public
+	function __construct() {
+		$widget_options = array( 'classname' => 'kiip_moment_widget', 'description' => 'Displays a container kiip moment in a widget. Takes priority over shortcodes.' );
+		parent::__construct( 'kiip_moment_widget', 'Kiip Moment Widget', $widget_options );
+	}
+
+	// Create the widget output.
+	public
+	function widget( $args, $instance ) {
+		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
+		$blog_title = get_bloginfo( 'name' );
+		$tagline = get_bloginfo( 'description' );
+		echo $args[ 'before_widget' ] . $args[ 'before_title' ] . $title . $args[ 'after_title' ];
+		// add html to widget contents
+		?>
+		<?php echo '<span id=\'kiip-moment-container\'></span>'; ?>
+		<?php
+		echo $args[ 'after_widget' ];
+	}
+
+
+	// Create the admin area widget settings form.
+	public
+	function form( $instance ) {
+		$title = !empty( $instance[ 'title' ] ) ? $instance[ 'title' ] : '';
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>">Title:</label>
+			<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $title ); ?>"/>
+		</p>
+		<?php
+	}
+
+
+	// Apply settings to the widget instance.
+	public
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance[ 'title' ] = strip_tags( $new_instance[ 'title' ] );
+		return $instance;
+	}
+
+}
+
+
+add_action( 'widgets_init', 'kiip_moment_register_widget' );
+
+
+/**
+	 * Set up scripts and styles for the widget
+	 * 
+	 * @since 3.1.3
+	 * hacky?
+	 */
+function setup_enque_actions() {
+	$plugin_data = new kiip_for_wordpress();
+	//$plugin_version = $plugin_data->get_plugin_data()[ 'Version' ];
+
+	wp_enqueue_script( 'kiip-for-wp-public', plugin_dir_url( __FILE__ ) . 'public/js/' . 'kiip-for-wordpress-public-' . 'contained' . '.js', array( 'jquery' ), '3.1.2' );
+	wp_localize_script( 'kiip-for-wp-public', 'php_vars', $plugin_data->kiip_options_array() );
+}
+
+/**
+	 * checking pages, posts, posts page etc for our shortcode outside any classes
+	 * 
+	 * @since 3.1.3
+	 
+	 */
+function check_for_shortcode() {
+	global $wp_query;
+	$posts = $wp_query->posts;
+	$pattern = get_shortcode_regex();
+	foreach ( $posts as $post ) {
+		if ( preg_match_all( '/' . $pattern . '/s', $post->post_content, $matches ) &&
+			array_key_exists( 2, $matches ) &&
+			in_array( 'kiip_ad_shortcode', $matches[ 2 ] ) ) {
+			break;
+		} else {
+			add_action( 'wp_enqueue_scripts', 'setup_enque_actions' );
+		}
+	}
+}
+
+// check for our shortcode outside any classes. 
+// odd effect of using it in a widget or even a class, it produces fatal errors or just unkown wsod I believe
+add_action( 'wp', 'check_for_shortcode' );
+// Register the widget.
+function kiip_moment_register_widget() {
+	register_widget( 'kiip_Widget' );
+}
