@@ -434,7 +434,7 @@ function setup_enque_actions() {
 	$plugin_data = new kiip_for_wordpress();
 	//$plugin_version = $plugin_data->get_plugin_data()[ 'Version' ];
 
-	wp_enqueue_script( 'kiip-for-wp-public', plugin_dir_url( __FILE__ ) . 'public/js/' . 'kiip-for-wordpress-public-' . 'contained' . '.js', array( 'jquery' ), '3.1.2' );
+	wp_enqueue_script( 'kiip-for-wp-public', plugin_dir_url( __FILE__ ) . 'public/js/' . 'kiip-for-wordpress-public-' . 'contained' . '.js', array( 'jquery' ), '3.1.3' );
 	wp_localize_script( 'kiip-for-wp-public', 'php_vars', $plugin_data->kiip_options_array() );
 }
 
