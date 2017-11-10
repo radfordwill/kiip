@@ -42,9 +42,11 @@ Use shortcodes to load kiip moment rewards.
 Kiip is a marketing and monetization platform unique in style and user reward platforms. User retention is an important aspect for Wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today!
 
 == Installation ==
+
 Add the plugin from your wordpress admin plugins page automatically (search "kiip for wordpress") or upload the plugin to your blog, activate the plugin, then enter your kiip.me app key found at https://api.kiip.me/register/dev_verify/.
 
 == Frequently Asked Questions ==
+
 = Q: What do I need to use this plugin?
 
 A: You will need to sign up for a developer key at: https://api.kiip.me/register/dev_verify/. Go to your dashboard and choose app settings for your unique public key. Copy and paste your key in the kiip for Wordpress admin page.
@@ -59,13 +61,12 @@ It may show up here.
 
 == Screenshots ==
 1. Kiip Moments
-
 2. Kiip Moment in a Widget
-
 
 ==  Changelog  ==
 
-= 3.1.4 = 
+= 3.1.4 =
+
 *fix for stylesheet conflict and moment container size problems.
 *added support for limiting bootstrap css and js to load just for the plugin settings page.
 *added support for moment container's css styling, height/width.
@@ -85,5 +86,6 @@ It may show up here.
 * change functions use enqueue styles and javascript properly for admin page.
 
 == Upgrade Notice ==
+
 = 3.1.4 =
 * changes that need a plugin update to work properly, please update.
