@@ -30,7 +30,6 @@ This version adds a widget in the widgets page to load a kiip moment wherever yo
 Shortcodes:
 Use shortcodes to load kiip moment rewards.
 
-
 Kiip is a marketing and monetization platform unique in style and user reward platforms. User retention is an important aspect for Wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today!
 
 == Installation ==

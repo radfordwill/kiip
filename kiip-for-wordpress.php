@@ -214,10 +214,17 @@ class kiip_for_wordpress {
 	public
 
 	function enqueue_styles_admin() {
+		// Load only on plugin id, id for $current_screen does not get called soon enough to load in header??		
+		if ( 'kiip/admin/partials/kiip-for-wordpress-admin-display.php' != $_GET[ 'page' ] ) {
+			return;
+		}
+		//$current_page_id = self::check_current_screen_admin();    
+		//if( $current_page_id == "kiip/admin/partials/kiip-for-wordpress-admin-display" ) {
 		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/kiip-for-wordpress-admin.css', array(), self::VERSION, 'all' );
+		// bootstrap 3  affects other admin pages when loaded without conditions to exclude it from the rest of the admin.
 		wp_enqueue_style( 'bootstrap-3.3.7', plugin_dir_url( __FILE__ ) . 'admin/css/bootstrap/bootstrap.min.css' );
-		wp_enqueue_style( 'prettify', plugin_dir_url( __FILE__ ) . 'admin/css/prettify/prettify.css' );
 	}
+	//}
 
 	/**
 	 * Register the JavaScript for the admin area.
@@ -227,9 +234,15 @@ class kiip_for_wordpress {
 	public
 
 	function enqueue_scripts_admin() {
-		wp_enqueue_script( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/js/kiip-for-wordpress-admin.js', array( 'jquery' ), self::VERSION, false );
-		// Google Prettify JavaScript
-		wp_enqueue_script( 'code-prettify', plugin_dir_url( __FILE__ ) . 'admin/js/prettify/run_prettify.js??skin=sons-of-obsidian', '', '', false );
+		// get page id and load js only on this plugins settings page
+		$current_page_id = self::check_current_screen_admin();
+		if ( $current_page_id != "kiip/admin/partials/kiip-for-wordpress-admin-display" ) {
+			return;
+		}
+		//unused
+		//wp_enqueue_script( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/js/kiip-for-wordpress-admin.js', array( 'jquery' ), self::VERSION, false );
+		// moonlight syntax highlighjter
+		wp_enqueue_script( 'moonlight', plugin_dir_url( __FILE__ ) . 'admin/js/moonlight/moonlight.js', '', '', false );
 		// popper.min.js
 		wp_enqueue_script( 'popper-1.12.5', plugin_dir_url( __FILE__ ) . 'admin/js/bootstrap/popper.min.js', array( 'jquery' ), self::VERSION, false );
 	}
@@ -300,7 +313,7 @@ class kiip_for_wordpress {
 
 		if ( $atts[ 'type' ] == 'contained' ) {
 			// maybe add this in sooner
-			echo '<span id=\'kiip-moment-container\'></span>';
+			echo '<span id=\'kiip-moment-container\' class=\'kiip-moment-container-height\'></span>';
 		}
 		if ( $atts[ 'type' ] == true ) {
 			$name = $atts[ 'type' ];
@@ -358,6 +371,22 @@ class kiip_for_wordpress {
 		$url = trailingslashit( plugins_url( basename( __DIR__ ) ) );
 		return ( $url );
 	}
+
+	/**
+	 * supposed to get the page id, runs too ate for this plugin
+	 *
+	 * @since    3.1.4
+	 * 
+	 */
+	public
+
+	function check_current_screen_admin() {
+		if ( !is_admin() ) return;
+
+		global $current_screen;
+
+		return ( $current_screen->id );
+	}
 }
 
 /**
@@ -367,16 +396,17 @@ $kiip_for_wordpress = new kiip_for_wordpress();
 
 
 /**
-	 * Widget class for kiip moment display
-	 * supported in wide sidebars for now
-	 * shortcode takes priority over this widget
-	 * 
-	 * @since 3.1.3	 
-	 */
+ * Widget class for kiip moment display
+ * supported in wide sidebars for now
+ * shortcode takes priority over this widget
+ * 
+ * @since 3.1.3	 
+ */
 class kiip_Widget extends WP_Widget {
 
 	// Set up the widget name and description.
 	public
+
 	function __construct() {
 		$widget_options = array( 'classname' => 'kiip_moment_widget', 'description' => 'Displays a container kiip moment in a widget. Takes priority over shortcodes.' );
 		parent::__construct( 'kiip_moment_widget', 'Kiip Moment Widget', $widget_options );
@@ -384,6 +414,7 @@ class kiip_Widget extends WP_Widget {
 
 	// Create the widget output.
 	public
+
 	function widget( $args, $instance ) {
 		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
 		$blog_title = get_bloginfo( 'name' );
@@ -391,7 +422,7 @@ class kiip_Widget extends WP_Widget {
 		echo $args[ 'before_widget' ] . $args[ 'before_title' ] . $title . $args[ 'after_title' ];
 		// add html to widget contents
 		?>
-		<?php echo '<span id=\'kiip-moment-container\'></span>'; ?>
+		<?php echo '<span id=\'kiip-moment-container\' class=\'kiip-moment-container\'></span>'; ?>
 		<?php
 		echo $args[ 'after_widget' ];
 	}
@@ -399,6 +430,7 @@ class kiip_Widget extends WP_Widget {
 
 	// Create the admin area widget settings form.
 	public
+
 	function form( $instance ) {
 		$title = !empty( $instance[ 'title' ] ) ? $instance[ 'title' ] : '';
 		?>
@@ -412,6 +444,7 @@ class kiip_Widget extends WP_Widget {
 
 	// Apply settings to the widget instance.
 	public
+
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance[ 'title' ] = strip_tags( $new_instance[ 'title' ] );
@@ -425,11 +458,11 @@ add_action( 'widgets_init', 'kiip_moment_register_widget' );
 
 
 /**
-	 * Set up scripts and styles for the widget
-	 * 
-	 * @since 3.1.3
-	 * hacky?
-	 */
+ * Set up scripts and styles for the widget
+ * 
+ * @since 3.1.3
+ * hacky?
+ */
 function setup_enque_actions() {
 	$plugin_data = new kiip_for_wordpress();
 	//$plugin_version = $plugin_data->get_plugin_data()[ 'Version' ];

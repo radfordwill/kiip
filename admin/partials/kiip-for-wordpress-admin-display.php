@@ -75,10 +75,20 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 		</div>
 		<div class="row">
 			<div class="col-lg-4 ">
-				<div class="prettify"><kbd>Shortcodes</kbd><br>
-					<p>NEW!<br> The container moment shortcode:<br><code>&#91;kiip_ad_shortcode type="contained"&#93;</code> <br> This shortcode will work in most widgets that accept html or just shortcodes. <br>The other three shortcodes are supported in posts and pages only for now.</p>
+				
+					<p>NEW!<br> A widget was added in WP Widgets page to use the container(small) moment anywhere you can add your widgets in themes.</p>
 					<p></p>
-					<pre class="prettyprint linenums"><?php print("&#91;kiip_ad_shortcode type=\"fullscreen\"&#93;\n<p>&#91;kiip_ad_shortcode type=\"contained\"&#93;\n<div>&#91;kiip_ad_shortcode type=\"fullscreen-onscroll\"&#93;</div>\n&#91;kiip_ad_shortcode type=\"fullscreen-onclick\"&#93;\n") ?></pre></div>
+					<kbd>Shortcodes List</kbd><br>
+					<div class="microlight"><?php print('<p>&#91;kiip_ad_shortcode type="fullscreen"&#93;</p>'."".'
+					
+<p>&#91;kiip_ad_shortcode type="contained"&#93;</p>'.''."".'
+					
+<p>&#91;kiip_ad_shortcode type="fullscreen-onscroll"&#93;</p>'.''."".'
+					
+<p>&#91;kiip_ad_shortcode type="fullscreen-onclick"&#93;</p>'.""
+													   
+													   ) ?></div>
+													   
 			</div>
 			<div class="col-lg-4 align-baseline">
 				<p>&nbsp;</p>
@@ -99,7 +109,7 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 		<div class="row">
 			<div class="col-lg-12">
 				<p class="lead">
-	<a href="https://app.kiip.me/register/dev_verify" target="new">Sign up for the kiip.me developer key</a>
+	<a class="dashicons dashicons-admin-links text-nowrap" href="https://app.kiip.me/register/dev_verify" target="new">Sign up for the kiip.me developer key</a>
 	</p>
 			</div>
 		</div>
@@ -164,7 +174,7 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 				<p class="font-weight-bold L9">
 					<?php echo( $plugin_name_version ); ?>
 				</p>
-				<p class="font-weight-bold L9">*kiip logos and branding are reg. trademarks of <a href="http://kiip.me" title="Kiip Inc website" target="_blank">Kiip, Inc.</a>
+				<p class="font-weight-bold small">*kiip logos and branding are reg. trademarks of <a class="footer-link dashicons dashicons-admin-links text-nowrap" href="http://kiip.me" title="Kiip Inc website" target="_blank">Kiip, Inc.</a>
 				</p>
 			</span>
 			<?php if( isset($_GET['settings-updated']) ) { ?>		

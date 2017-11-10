@@ -3,8 +3,30 @@
  * included in this file.
  */
 
-/* hacky way to do it but position is an issue in some themes */
-#kiip-moment-container {
-	width: 99% !important;
-	position: static !important;
+/* hacky way to do it but sidebar width is an issue in most themes - needs >350px 
+ * the height of the iframe is possibly a little maddening
+ */
+
+/* reset some stuff? */
+.kiip_moment_widget {	
+	padding: 0 0 0 0 !important; /* reset */	
+	margin: 0 0 0 0 !important; /* reset */
+	overflow: hidden !important; /* no scroll bars */ 
+	height: 315px !important; /* how to set the height for iframe contents? */
+}
+
+/* wider screens */
+@media (min-width: 1900px) {
+ .sidebar .kiip_moment_widget #kiip-moment-container {	
+
+	margin-left: -19% !important;	
+}
+}
+
+/* wide screens */
+@media (max-width: 1310px) {
+  .sidebar .kiip_moment_widget #kiip-moment-container {	
+
+	margin-left: -29% !important;	
+}
 }
