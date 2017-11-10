@@ -6,7 +6,7 @@
  * Description: Kiip.me plugin for Wordpress. Kiip is a marketing and monetization platform unique in style and user rewardplatforms. User retention is an important aspect for wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention. 
  *
  * Plugin URI: http://radford.online
- * Version: 3.1.3
+ * Version: 3.1.4
  *
  * Author: Will Radford
  * Author URI: http:/radford.online
@@ -41,7 +41,7 @@ class kiip_for_wordpress {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '3.1.3';
+	const VERSION = '3.1.4';
 
 	/**
 	 * This plugin's folder name and location (also slug name for wordpress.org)
@@ -198,8 +198,8 @@ class kiip_for_wordpress {
 		 */
 		// Call kiip.me web api to load ads. Admin settings contain required api key(s) and pertinent data. 
 		// Data is returned in a function in this class'
-		wp_enqueue_script( 'kiip-ex', '//d3aq14vri881or.cloudfront.net/kiip.js', false );
-		if ( $file_name != '' ) {
+		    wp_enqueue_script( 'kiip-ex', '//d3aq14vri881or.cloudfront.net/kiip.js', false );
+		    if ( $file_name != '' ) {
 			wp_enqueue_script( 'kiip-for-wp-public', plugin_dir_url( __FILE__ ) . 'public/js/' . $file_name . '.js', array( 'jquery' ), self::VERSION );
 			wp_localize_script( 'kiip-for-wp-public', 'php_vars', $this->kiip_options_array() );
 		}
@@ -467,7 +467,7 @@ function setup_enque_actions() {
 	$plugin_data = new kiip_for_wordpress();
 	//$plugin_version = $plugin_data->get_plugin_data()[ 'Version' ];
 
-	wp_enqueue_script( 'kiip-for-wp-public', plugin_dir_url( __FILE__ ) . 'public/js/' . 'kiip-for-wordpress-public-' . 'contained' . '.js', array( 'jquery' ), '3.1.3' );
+	wp_enqueue_script( 'kiip-for-wp-public', plugin_dir_url( __FILE__ ) . 'public/js/' . 'kiip-for-wordpress-public-' . 'contained' . '.js', array( 'jquery' ), kiip_for_wordpress::VERSION );
 	wp_localize_script( 'kiip-for-wp-public', 'php_vars', $plugin_data->kiip_options_array() );
 }
 
@@ -493,9 +493,28 @@ function check_for_shortcode() {
 }
 
 // check for our shortcode outside any classes. 
-// odd effect of using it in a widget or even a class, it produces fatal errors or just unkown wsod I believe
+// odd effect of using it in a widget or even a class, it produces fatal errors or just unkown wsod I believe. never could get an error be thrown
 add_action( 'wp', 'check_for_shortcode' );
+
 // Register the widget.
 function kiip_moment_register_widget() {
 	register_widget( 'kiip_Widget' );
 }
+
+/**
+ * Add plugin action links.
+ *
+ * Add a link to the settings page on the plugins.php page.
+ *
+ * @since 3.1.3
+ *
+ * @param  array  $links List of existing plugin action links.
+ * @return array         List of modified plugin action links.
+ */
+function kiip_plugin_action_link( $links ) {
+	$links = array_merge( array(
+		'<a href="' . esc_url( admin_url( 'admin.php?page=kiip/admin/partials/kiip-for-wordpress-admin-display.php' ) ) . '">' . __( 'Settings', kiip_for_wordpress::ID ) . '</a> | <a href="' . esc_url( 'https://paypal.me/kiipforwordpress' ) . '">' . __( 'Energy Drink Fund', kiip_for_wordpress::ID ) . '</a> | <a href="' . esc_url( 'https://wordpress.org/support/plugin/kiip/reviews/' ) . '">' . __( 'Review', kiip_for_wordpress::ID ) . '</a>'
+	), $links );
+	return $links;
+}
+add_action( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'kiip_plugin_action_link' );
