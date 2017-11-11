@@ -3,16 +3,16 @@
 /**
  * Plugin Name: Kiip For Wordpress
  *
- * Description: Kiip.me plugin for Wordpress. Kiip is a marketing and monetization platform unique in style and user rewardplatforms. User retention is an important aspect for wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention. 
+ * Description: Kiip.me plugin for Wordpress. Kiip is a marketing and monetization platform unique in style and user rewardplatforms. User retention is an important aspect for wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention.
  *
  * Plugin URI: http://radford.online
- * Version: 3.1.4
+ * Version: 3.1.3
  *
  * Author: Will Radford
  * Author URI: http:/radford.online
  * License: GPLv2
  * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
- * @package kiip-for-wordpress
+ * @package kiip
  * Text Domain:  kiip-for-wordpress
  * Domain Path:  /languages
  *
@@ -66,6 +66,7 @@ class kiip_for_wordpress {
 
 	function __construct() {
 		$this->initialize();
+		global $admin_menu_link;
 		if ( is_admin() ) {
 			$this->load_plugin_textdomain();
 
@@ -76,10 +77,16 @@ class kiip_for_wordpress {
 			// add settings to db from settings api
 			$this->register_settings();
 
+
+			global $blog_id;
+			$blog_idn = get_blog_details( $blog_id );
 			if ( is_multisite() ) {
 				$admin_menu = 'network_admin_menu';
+				$this->admin_menu_link = self::FOLDERNAME . '/admin/partials/kiip-for-wordpress-admin-display.php';
+				//$this->admin_menu_link = $blog_idn->blogname.'/'.self::FOLDERNAME . '/admin/partials/kiip-for-wordpress-admin-display.php';
 			} else {
 				$admin_menu = 'admin_menu';
+				$this->admin_menu_link = self::FOLDERNAME . '/admin/partials/kiip-for-wordpress-admin-display.php';
 			}
 
 			register_activation_hook( __FILE__, array( & $this, 'activate' ) );
@@ -158,7 +165,7 @@ class kiip_for_wordpress {
 	 * Add menu link with icon in admin
 	 *
 	 * @since    1.0.3
-	 * 
+	 *
 	 */
 	// Admin Menu Main page.
 	public
@@ -168,7 +175,7 @@ class kiip_for_wordpress {
 		add_menu_page( 'Kiip for WP Settings',
 			'Kiip-for-WP',
 			'manage_options',
-			self::FOLDERNAME . '/admin/partials/kiip-for-wordpress-admin-display.php',
+			$this->admin_menu_link,
 			'',
 			plugins_url( self::FOLDERNAME ) . '/assets/images/kiip-round-logo-white16.png', 99 );
 	}
@@ -196,7 +203,7 @@ class kiip_for_wordpress {
 		 *
 		 * @since    1.0.2
 		 */
-		// Call kiip.me web api to load ads. Admin settings contain required api key(s) and pertinent data. 
+		// Call kiip.me web api to load ads. Admin settings contain required api key(s) and pertinent data.
 		// Data is returned in a function in this class'
 		    wp_enqueue_script( 'kiip-ex', '//d3aq14vri881or.cloudfront.net/kiip.js', false );
 		    if ( $file_name != '' ) {
@@ -214,11 +221,11 @@ class kiip_for_wordpress {
 	public
 
 	function enqueue_styles_admin() {
-		// Load only on plugin id, id for $current_screen does not get called soon enough to load in header??		
+		// Load only on plugin id, id for $current_screen does not get called soon enough to load in header??
 		if ( 'kiip/admin/partials/kiip-for-wordpress-admin-display.php' != $_GET[ 'page' ] ) {
 			return;
 		}
-		//$current_page_id = self::check_current_screen_admin();    
+		//$current_page_id = self::check_current_screen_admin();
 		//if( $current_page_id == "kiip/admin/partials/kiip-for-wordpress-admin-display" ) {
 		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/kiip-for-wordpress-admin.css', array(), self::VERSION, 'all' );
 		// bootstrap 3  affects other admin pages when loaded without conditions to exclude it from the rest of the admin.
@@ -241,8 +248,8 @@ class kiip_for_wordpress {
 		}
 		//unused
 		//wp_enqueue_script( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/js/kiip-for-wordpress-admin.js', array( 'jquery' ), self::VERSION, false );
-		// moonlight syntax highlighjter
-		wp_enqueue_script( 'moonlight', plugin_dir_url( __FILE__ ) . 'admin/js/moonlight/moonlight.js', '', '', false );
+		// microlight syntax highlighjter
+		wp_enqueue_script( 'microlight', plugin_dir_url( __FILE__ ) . 'admin/js/microlight/microlight.js', '', '', false );
 		// popper.min.js
 		wp_enqueue_script( 'popper-1.12.5', plugin_dir_url( __FILE__ ) . 'admin/js/bootstrap/popper.min.js', array( 'jquery' ), self::VERSION, false );
 	}
@@ -275,10 +282,10 @@ class kiip_for_wordpress {
 	}
 
 	/**
-	 * Get version from public class file 
+	 * Get version from public class file
 	 *
 	 * @since    1.0.2
-	 * 
+	 *
 	 */
 	public
 
@@ -293,7 +300,7 @@ class kiip_for_wordpress {
 	 * Add shortcode support to the front end pages and html widgets
 	 *
 	 * @since    1.0.3
-	 * 
+	 *
 	 */
 	public
 
@@ -302,7 +309,7 @@ class kiip_for_wordpress {
 
 		// [kiip_ad_shortcode "fullscreen"]	[kiip_ad_shortcode "moment_type"]
 		$atts = $this->we_normalize_attributes( $atts );
-		// Attributes		
+		// Attributes
 		$atts = shortcode_atts(
 			array(
 				'type' => 'fullscreen',
@@ -329,7 +336,7 @@ class kiip_for_wordpress {
 	 * attribute function
 	 *
 	 * @since    1.0.3
-	 * 
+	 *
 	 */
 	public
 
@@ -348,7 +355,7 @@ class kiip_for_wordpress {
 	 * path to directory function
 	 *
 	 * @since    3.1.3
-	 * 
+	 *
 	 */
 	public
 
@@ -362,7 +369,7 @@ class kiip_for_wordpress {
 	 * url of plugin folder function
 	 *
 	 * @since    3.1.3
-	 * 
+	 *
 	 */
 	public
 
@@ -376,7 +383,7 @@ class kiip_for_wordpress {
 	 * supposed to get the page id, runs too ate for this plugin
 	 *
 	 * @since    3.1.4
-	 * 
+	 *
 	 */
 	public
 
@@ -399,8 +406,8 @@ $kiip_for_wordpress = new kiip_for_wordpress();
  * Widget class for kiip moment display
  * supported in wide sidebars for now
  * shortcode takes priority over this widget
- * 
- * @since 3.1.3	 
+ *
+ * @since 3.1.3
  */
 class kiip_Widget extends WP_Widget {
 
@@ -459,7 +466,7 @@ add_action( 'widgets_init', 'kiip_moment_register_widget' );
 
 /**
  * Set up scripts and styles for the widget
- * 
+ *
  * @since 3.1.3
  * hacky?
  */
@@ -473,9 +480,9 @@ function setup_enque_actions() {
 
 /**
 	 * checking pages, posts, posts page etc for our shortcode outside any classes
-	 * 
+	 *
 	 * @since 3.1.3
-	 
+
 	 */
 function check_for_shortcode() {
 	global $wp_query;
@@ -492,7 +499,7 @@ function check_for_shortcode() {
 	}
 }
 
-// check for our shortcode outside any classes. 
+// check for our shortcode outside any classes.
 // odd effect of using it in a widget or even a class, it produces fatal errors or just unkown wsod I believe. never could get an error be thrown
 add_action( 'wp', 'check_for_shortcode' );
 
