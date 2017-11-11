@@ -77,13 +77,9 @@ class kiip_for_wordpress {
 			// add settings to db from settings api
 			$this->register_settings();
 
-
-			global $blog_id;
-			$blog_idn = get_blog_details( $blog_id );
 			if ( is_multisite() ) {
 				$admin_menu = 'network_admin_menu';
 				$this->admin_menu_link = self::FOLDERNAME . '/admin/partials/kiip-for-wordpress-admin-display.php';
-				//$this->admin_menu_link = $blog_idn->blogname.'/'.self::FOLDERNAME . '/admin/partials/kiip-for-wordpress-admin-display.php';
 			} else {
 				$admin_menu = 'admin_menu';
 				$this->admin_menu_link = self::FOLDERNAME . '/admin/partials/kiip-for-wordpress-admin-display.php';
