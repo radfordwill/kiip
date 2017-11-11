@@ -6,7 +6,7 @@
  * Description: Kiip.me plugin for Wordpress. Kiip is a marketing and monetization platform unique in style and user rewardplatforms. User retention is an important aspect for wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention.
  *
  * Plugin URI: http://radford.online
- * Version: 3.1.3
+ * Version: 3.1.4
  *
  * Author: Will Radford
  * Author URI: http:/radford.online
