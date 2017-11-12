@@ -13,7 +13,7 @@
  * License: GPLv2
  * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
  * @package kiip
- * Text Domain:  kiip-for-wordpress
+ * Text Domain:  kiip
  * Domain Path:  /languages
  *
  */
@@ -44,9 +44,15 @@ class kiip_for_wordpress {
 	const VERSION = '3.1.5';
 
 	/**
-	 * This plugin's folder name and location (also slug name for wordpress.org)
+	 * This plugin's folder name and location, text domain (also slug name for wordpress.org)
 	 */
 	const FOLDERNAME = 'kiip';
+	
+	
+	/**
+	 * This plugin's folder name and location, text domain (also slug name for wordpress.org)
+	 */
+	const TEXTDOMAIN = 'kiip';
 
 	/**
 	 * This plugin's table name prefix
@@ -131,7 +137,7 @@ class kiip_for_wordpress {
 
 	function load_plugin_textdomain() {
 		if ( !$this->loaded_textdomain ) {
-			load_plugin_textdomain( self::ID, false, self::ID . '/languages' );
+			load_plugin_textdomain( self::TEXTDOMAIN, false, self::TEXTDOMAIN . '/languages' );
 			$this->loaded_textdomain = true;
 		}
 	}
