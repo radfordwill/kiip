@@ -44,8 +44,7 @@ jQuery(document).ready(function () {
 		list.appendChild(container);
 	};
 	// notification is a future function
-	kiip = new Kiip(kiipsetPublickey, function (unit) {
-		
+	kiip = new Kiip(kiipsetPublickey, function (unit) {		
 		if (!unit) {
 			return;
 		}

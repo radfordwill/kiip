@@ -9,36 +9,46 @@ Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-kiip.me plugin for Wordpress.
-Create rewards and user retention.
-Make ad revenue.
+kiip.me revenue plugin for Wordpress.
+Create real rewards for your users and make revenue at the same time!
 
 == Description ==
 kiip.me plugin for Wordpress.
 
-Create rewards and increase user retention.
-Make ad revenue.
+Create real rewards for your users and make revenue at the same time!
 
-Better placement in posts and pages.
-Install and add settings in admin.
+Install and add settings in your admin.
 Get a free developer key at:
-https://api.kiip.me/register/dev_verify/
+<https://api.kiip.me/register/dev_verify/>
 
-New Widgets
-This version adds a widget in the widgets page to load a kiip moment wherever you like. You should have at least 350px or more wherever you place it. Just a reminder: Shortcodes take priority over widgets by default but it really depends on how your theme loads wordpress shortcodes and widgets.
+= New =
+Better placement in posts and pages.
+Widgets for your theme.
 
-Shortcodes:
+= New Widgets =
+This version adds a widget in the widgets page to load a kiip moment wherever you like.
+You should have at least 350px or more wherever you place it.
+Just a reminder: Shortcodes take priority over widgets by default but it really depends
+on how your theme loads wordpress shortcodes and widgets.
+
+= Shortcodes =
 Use shortcodes to load kiip moment rewards.
 
-Kiip is a marketing and monetization platform unique in style and user reward platforms. User retention is an important aspect for Wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today!
+= About kiip =
+Kiip is a marketing and monetization platform unique in style and user reward platforms.
+User retention is an important aspect for Wordpress websites with subscribers, crm's and more.
+Reward your users and monetize your website today!
 
 == Installation ==
-Add the plugin from your wordpress admin plugins page automatically (search "kiip for wordpress") or upload the plugin to your blog, activate the plugin, then enter your kiip.me app key found at https://api.kiip.me/register/dev_verify/.
+1. Add the plugin from your wordpress admin plugin page automatically (search "kiip") or upload the plugin to your blog.
+2. Activate the plugin and enter your kiip.me app key found at https://api.kiip.me/register/dev_verify/.
 
 == Frequently Asked Questions ==
 = Q: What do I need to use this plugin?
 
-A: You will need to sign up for a developer key at: https://api.kiip.me/register/dev_verify/. Go to your dashboard and choose app settings for your unique public key. Copy and paste your key in the kiip for Wordpress admin page.
+A: You will need to sign up for a developer key at: <https://api.kiip.me/register/dev_verify/>.
+Go to your dashboard and choose app settings for your unique public key.
+Copy and paste your key in the kiip for Wordpress admin page.
 
 = Q: I have a problem to report
 
@@ -52,21 +62,24 @@ It may show up here.
 1. Kiip Moments
 2. Kiip Moment in a Widget
 
-
 ==  Changelog  ==
 
-= 3.1.4 = 
-*fix for stylesheet conflict and moment container size problems.
-*added support for limiting bootstrap css and js to load just for the plugin settings page.
-*added support for moment container's css styling, height/width.
-*change syntax highlighter.
-*screenshot size change.  
+= 3.1.5 =
+* better fix for stylesheet moment container size problems. 
+* heights are now set to 325px for widgets and shortcode container moments.
+* add new index file to main folder for the plugin.
+
+= 3.1.4 =
+* fix for stylesheet conflict and moment container size problems.
+* added support for limiting bootstrap css and js to load just for the plugin settings page.
+* added support for moment container's css styling, height/width.
+* change syntax highlighter.
+* screenshot size change.
 
 = 3.1.3 =
 * add a widget to plugin.
 * files are located in a better way.
 * add admin notice on saving the plugin options.
-* fix Google Prettify code view for shortcodes.
 * fix Google Prettify code view for shortcodes.
 
 = 3.1.2 =
@@ -75,5 +88,5 @@ It may show up here.
 * change functions use enqueue styles and javascript properly for admin page.
 
 == Upgrade Notice ==
-= 3.1.4 =
-* changes that need a plugin update to work properly, please update.
+= 3.1.5 =
+* better fix for stylesheet moment container size problems. 

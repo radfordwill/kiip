@@ -8,13 +8,18 @@
 	}
 
 .microlight {
-    font-family : monospace;
+    font-family: monospace;
 	color: #bbc8d4;
-    white-space : pre;
-    background-color : #00338B;
+    white-space: pre;
+    background-color: #00338B;
 	padding: 20px;
 	border-radius: 25px;
 	font-size: 12px;
+}
+
+.microlight .odd {
+	color: #00338B !important;
+    background-color: #bbc8d4 !important;
 }
 
 .footer-link {

@@ -6,21 +6,20 @@ if ( !defined( 'WPINC' ) ) {
 
 /**
  * Provide a admin area view for the plugin
- 
+
  * Plugin URI: https://wordpress.org/plugins/kiip/
  * Version: 3.1.2
  * @author     Will Radford <radford.will@gmail.com>
  * @link       http://radford.online/
  * @since      1.0.0
  *
- * @package    Kiip_For_Wordpress
+ * @package kiip
  */
 
 /**
  * Provides an admin area view for the plugin (WP CSS)
  *
  *
- * @package    Kiip_For_Wordpress
  */
 
 $plugin_data = new kiip_for_wordpress();
@@ -43,7 +42,7 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 				<p class="font-weight-bold small">User retention is an important aspect for wordpress websites with subscribers, crm's and more.</p>
 				<p class="font-weight-bold small">Reward your users and monetize your website today!</p>
 				<p class="font-weight-bold small">Make ad revenue. Create rewards and user retention.</p>
-			</div>			
+			</div>
 			<div class="col-lg-4">
 				<table style="text-align:center">
 					<?php /* Donation Form */ ?>
@@ -75,20 +74,20 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 		</div>
 		<div class="row">
 			<div class="col-lg-4 ">
-				
-					<p>NEW!<br> A widget was added in WP Widgets page to use the container(small) moment anywhere you can add your widgets in themes.</p>
+
+					<p>NEW!<br> A widget has been added in WP Widgets page to use the container(small) moment anywhere you can add your widgets in themes.</p>
 					<p></p>
 					<kbd>Shortcodes List</kbd><br>
-					<div class="microlight"><?php print('<p>&#91;kiip_ad_shortcode type="fullscreen"&#93;</p>'."".'
-					
-<p>&#91;kiip_ad_shortcode type="contained"&#93;</p>'.''."".'
-					
-<p>&#91;kiip_ad_shortcode type="fullscreen-onscroll"&#93;</p>'.''."".'
-					
-<p>&#91;kiip_ad_shortcode type="fullscreen-onclick"&#93;</p>'.""
-													   
+					<div class="microlight"><?php print('<span class="odd">1. </span><p>&#91;kiip_ad_shortcode type="fullscreen"&#93;</p>'."".'
+
+<span class="even">2. </span><p>&#91;kiip_ad_shortcode type="contained"&#93;</p>'.''."".'
+
+<span class="odd">3. </span><p>&#91;kiip_ad_shortcode type="fullscreen-onscroll"&#93;</p>'.''."".'
+
+<span class="even">4. </span><p>&#91;kiip_ad_shortcode type="fullscreen-onclick"&#93;</p>'.""
+
 													   ) ?></div>
-													   
+
 			</div>
 			<div class="col-lg-4 align-baseline">
 				<p>&nbsp;</p>
@@ -114,8 +113,8 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-12">			
-				<p class="lead"><strong>Kiip for WP Settings</strong></p>				
+			<div class="col-lg-12">
+				<p class="lead"><strong>Kiip for WP Settings</strong></p>
 				<form method="post" action="options.php">
 					<?php settings_fields( 'kiip-settings-group' ); ?>
 					<?php do_settings_sections( 'kiip-settings-group' ); ?>
@@ -139,7 +138,7 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 						</tr>
 						<tr valign="top">
 							<th scope="row">Test Mode</th>
-							<td><input type="checkbox" name="is_test_mode" "<?php 
+							<td><input type="checkbox" name="is_test_mode" "<?php
 			if (!get_option('is_test_mode') || get_option('is_test_mode') == 'off')
            {
 	        echo "value='off' ";
@@ -166,7 +165,7 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 					<?php submit_button(); ?>
 				</form>
 			</div>
-		</div>		
+		</div>
 	</div>
 	<footer class="footer">
 		<div class="container">
@@ -177,9 +176,9 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 				<p class="font-weight-bold small">*kiip logos and branding are reg. trademarks of <a class="footer-link dashicons dashicons-admin-links text-nowrap" href="http://kiip.me" title="Kiip Inc website" target="_blank">Kiip, Inc.</a>
 				</p>
 			</span>
-			<?php if( isset($_GET['settings-updated']) ) { ?>		
+			<?php if( isset($_GET['settings-updated']) ) { ?>
 			<div class=”updated”>
-				<div class="notice notice-success is-dismissible col-xs-4">				
+				<div class="notice notice-success is-dismissible col-xs-4">
 					<strong>
 						<?php echo 'Settings Saved.'; ?>
 					</strong>

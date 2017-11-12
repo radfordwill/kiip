@@ -6,7 +6,7 @@
  * Description: Kiip.me plugin for Wordpress. Kiip is a marketing and monetization platform unique in style and user rewardplatforms. User retention is an important aspect for wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention.
  *
  * Plugin URI: http://radford.online
- * Version: 3.1.4
+ * Version: 3.1.5
  *
  * Author: Will Radford
  * Author URI: http:/radford.online
@@ -41,7 +41,7 @@ class kiip_for_wordpress {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '3.1.4';
+	const VERSION = '3.1.5';
 
 	/**
 	 * This plugin's folder name and location (also slug name for wordpress.org)
@@ -316,7 +316,7 @@ class kiip_for_wordpress {
 
 		if ( $atts[ 'type' ] == 'contained' ) {
 			// maybe add this in sooner
-			echo '<span id=\'kiip-moment-container\' class=\'kiip-moment-container-height\'></span>';
+			echo '<span id=\'kiip-moment-container\' class=\'kiip-moment-container-shortcode\'></span>';
 		}
 		if ( $atts[ 'type' ] == true ) {
 			$name = $atts[ 'type' ];
@@ -425,7 +425,7 @@ class kiip_Widget extends WP_Widget {
 		echo $args[ 'before_widget' ] . $args[ 'before_title' ] . $title . $args[ 'after_title' ];
 		// add html to widget contents
 		?>
-		<?php echo '<span id=\'kiip-moment-container\' class=\'kiip-moment-container\'></span>'; ?>
+		<?php echo '<span id=\'kiip-moment-container\' class=\'kiip-moment-container-widget\'></span>'; ?>
 		<?php
 		echo $args[ 'after_widget' ];
 	}
@@ -516,7 +516,7 @@ function kiip_moment_register_widget() {
  */
 function kiip_plugin_action_link( $links ) {
 	$links = array_merge( array(
-		'<a href="' . esc_url( admin_url( 'admin.php?page=kiip/admin/partials/kiip-for-wordpress-admin-display.php' ) ) . '">' . __( 'Settings', kiip_for_wordpress::ID ) . '</a> | <a href="' . esc_url( 'https://paypal.me/kiipforwordpress' ) . '">' . __( 'Energy Drink Fund', kiip_for_wordpress::ID ) . '</a> | <a href="' . esc_url( 'https://wordpress.org/support/plugin/kiip/reviews/' ) . '">' . __( 'Review', kiip_for_wordpress::ID ) . '</a>'
+		'<i class="wp-menu-image dashicons-before dashicons-admin-tools"></i><a href="' . esc_url( admin_url( 'admin.php?page=kiip/admin/partials/kiip-for-wordpress-admin-display.php' ) ) . '">' . __( 'Settings', kiip_for_wordpress::ID ) . '</a> | <i class="wp-menu-image dashicons-before dashicons-share-alt"></i><a href="' . esc_url( 'https://paypal.me/kiipforwordpress' ) . '" style="color:#00ff0a; font-weight:bold;">' . __( 'Donate', kiip_for_wordpress::ID ) . '</a> | <i class="wp-menu-image dashicons-before dashicons-star-filled"></i><a href="' . esc_url( 'https://wordpress.org/support/plugin/kiip/reviews/' ) . '">' . __( 'Review', kiip_for_wordpress::ID ) . '</a>'
 	), $links );
 	return $links;
 }
