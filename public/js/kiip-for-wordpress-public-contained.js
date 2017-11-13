@@ -41,7 +41,7 @@ jQuery(document).ready(function () {
 	};
 
 	createContainer = function (kiip) {
-		var container = document.createElement('div');
+		var container = document.createElement('span');
 		var list = document.getElementById('kiip-moment-container');
 		kiip.setContainer(container);
 		list.appendChild(container);

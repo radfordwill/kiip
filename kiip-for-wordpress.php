@@ -322,7 +322,7 @@ class kiip_for_wordpress {
 
 		if ( $atts[ 'type' ] == 'contained' ) {
 			// maybe add this in sooner
-			echo '<div id=\'kiip-moment-container\' class=\'kiip-moment-container-shortcode\'></div>';
+			echo '<span id=\'kiip-moment-container\' class=\'kiip-moment-container-shortcode\'></span>';
 		}
 		if ( $atts[ 'type' ] == true ) {
 			$name = $atts[ 'type' ];
@@ -431,7 +431,7 @@ class kiip_Widget extends WP_Widget {
 		echo $args[ 'before_widget' ] . $args[ 'before_title' ] . $title . $args[ 'after_title' ];
 		// add html to widget contents
 		?>
-		<?php echo '<div id=\'kiip-moment-container\' class=\'kiip-moment-container-widget\'></div>'; ?>
+		<?php echo '<span id=\'kiip-moment-container\' class=\'kiip-moment-container-widget\'></span>'; ?>
 		<?php
 		echo $args[ 'after_widget' ];
 	}
