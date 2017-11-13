@@ -2,7 +2,7 @@
 
 **Contributors:** willrad  
 
-**Tags:** rewards, ads, revenue, kiip, adsense, monetize, retention  
+**Tags:** ads, revenue, kiip, adsense, monetize, rewards, retention  
 
 **Donate link:** paypal.me/kiipforwordpress  
 
@@ -26,6 +26,10 @@ kiip.me plugin for Wordpress.
 
 Create real rewards for your users and make revenue at the same time!
 
+Install and add settings in your admin.
+Get a free developer key at:
+<https://api.kiip.me/register/dev_verify/>
+
 New
 Better placement in posts and pages.
 Widgets for your theme.
@@ -46,9 +50,6 @@ Use shortcodes to load kiip moment rewards.
 Kiip is a marketing and monetization platform unique in style and user reward platforms.
 User retention is an important aspect for Wordpress websites with subscribers, crm's and more.
 Reward your users and monetize your website today!
-
-Remove the hassle of targeted ads. Geo targeting and ad personalization
-are very important at Kiip.
 
 
 ## Installation
@@ -88,7 +89,7 @@ It may show up here.
 
 ### 3.1.5
 
-* better fix for stylesheet moment container size problems.
+* better fix for stylesheet moment container size problems. 
 * heights are now set to 325px for widgets and shortcode container moments.
 * add new index file to main folder for the plugin.
 
@@ -120,5 +121,5 @@ It may show up here.
 
 
 ### 3.1.5
-* better fix for stylesheet moment container size problems.
+* better fix for stylesheet moment container size problems. 
 * heights are now set to 325px for widgets and shortcode container moments.
