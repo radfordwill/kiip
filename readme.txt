@@ -1,6 +1,6 @@
 === Kiip For Wordpress ===
 Contributors: willrad
-Tags: ads, revenue, kiip, adsense, monetize, rewards, retention
+Tags: rewards, ads, revenue, kiip, adsense, monetize, retention
 Donate link: paypal.me/kiipforwordpress
 Requires at least: 3.8
 Tested up to: 4.9
@@ -18,8 +18,6 @@ kiip.me plugin for Wordpress.
 Create real rewards for your users and make revenue at the same time!
 
 Install and add settings in your admin.
-Get a free developer key at:
-<https://api.kiip.me/register/dev_verify/>
 
 = New =
 Better placement in posts and pages.
@@ -35,9 +33,13 @@ on how your theme loads wordpress shortcodes and widgets.
 Use shortcodes to load kiip moment rewards.
 
 = About kiip =
+
 Kiip is a marketing and monetization platform unique in style and user reward platforms.
 User retention is an important aspect for Wordpress websites with subscribers, crm's and more.
 Reward your users and monetize your website today!
+
+Remove the hassle of targeted ads. Geo targeting and ad personalization
+are very important at Kiip.
 
 == Installation ==
 1. Add the plugin from your wordpress admin plugin page automatically (search "kiip") or upload the plugin to your blog.
@@ -50,11 +52,11 @@ A: You will need to sign up for a developer key at: <https://api.kiip.me/registe
 Go to your dashboard and choose app settings for your unique public key.
 Copy and paste your key in the kiip for Wordpress admin page.
 
-= Q: I have a problem to report
+= Q: I have a problem to report =
 
 A: Use this plugin's support forum page or send an email to will@radford.online
 
-= Ask a question
+= Ask a question =
 
 It may show up here.
 
@@ -65,7 +67,7 @@ It may show up here.
 ==  Changelog  ==
 
 = 3.1.5 =
-* better fix for stylesheet moment container size problems. 
+* better fix for stylesheet moment container size problems.
 * heights are now set to 325px for widgets and shortcode container moments.
 * add new index file to main folder for the plugin.
 
@@ -89,4 +91,4 @@ It may show up here.
 
 == Upgrade Notice ==
 = 3.1.5 =
-* better fix for stylesheet moment container size problems. 
+* better fix for stylesheet moment container size problems.

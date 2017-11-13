@@ -1,43 +1,65 @@
 /**
+
  * All of the CSS for the public-facing functionality is
+
  * included in this file.
+
  */
+
+
 
 /* hacky way to do it but sidebar width is an issue in most themes - needs >350px 
+
  * the height of the span is using display:block
+
  * the width is set by percentages in the iframe so the height was an issue
+
  */
 
+
+
 /* reset some stuff? */
+
 .kiip_moment_widget {	
+
 	display: block !important;
+
 	padding: 0 0 0 0 !important; /* reset */	
+
 	margin: 0 0 0 0 !important; /* reset */
+
 	overflow: hidden !important; /* no scroll bars */ 
+
 	height: 335px !important; /* how to set the height for iframe contents? */
+
 }
+
+
 
 .kiip-moment-container-shortcode{
+
 	display: block !important;
+
 	padding: 0 0 0 0 !important; /* reset */	
+
 	margin: 0 0 0 0 !important; /* reset */
+
 	overflow: visible !important; /* no scroll bars */ 
+
 	height: 325px !important; /* how to set the height for iframe contents? */	
-}
-
-/* wider screens */
-/* 
-@media (min-width: 1900px) {
- .sidebar .kiip_moment_widget #kiip-moment-container {
 
 }
-}
-*/
 
 /* small screens */
 @media (max-width: 1124px) {
-  .sidebar .kiip_moment_widget #kiip-moment-container {
+.kiip_moment_widget,.kiip-moment-container-shortcode #kiip-moment-container {
 	  margin-left: -10% !important;
+}
+}
 
+/* mobile screens */
+@media (max-width: 500px) {
+.kiip_moment_widget,.kiip-moment-container-shortcode #kiip-moment-container {
+	  margin-left: -4% !important;
 }
 }
