@@ -63,6 +63,7 @@ It may show up here.
 == Screenshots ==
 1. Kiip Moments
 2. Kiip Moment in a Widget
+3. Kiip Moment Mobile View
 
 ==  Changelog  ==
 

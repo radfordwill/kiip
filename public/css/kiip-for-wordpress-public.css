@@ -11,19 +11,19 @@
 /* reset some stuff? */
 
 .kiip-moment-container-widget {	
-	display: block !important;
+	display: block !important; /* a lot of the height\width issue depends on it*/
 	padding: 0 0 0 0 !important; /* reset */
 	margin: 0 0 0 0 !important; /* reset */
 	overflow: visible!important; /* no scroll bars */
 	height: 355px !important; /* how to set the height for iframe contents? */
 }
 
-.kiip-moment-container-shortcode{
-	display: block !important;
+.kiip-moment-container-shortcode {
+	display: block !important; /* a lot of the height\width issue depends on it*/
 	padding: 0 0 0 0 !important; /* reset */
 	margin: 0 0 0 0 !important; /* reset */
 	overflow: visible !important; /* no scroll bars */
-	height: 355px !important; /* how to set the height for iframe contents? */
+	height: 355px !important; /* how else to set the height for iframe contents? */
 }
 
 /* small screens */

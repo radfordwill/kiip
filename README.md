@@ -83,6 +83,9 @@ It may show up here.
 ### 2. Kiip Moment in a Widget
 ![Kiip Moment in a Widget](https://ps.w.org/kiip/assets/screenshot-2.jpg)
 
+### 3. Kiip Moment in a Widget
+![Kiip Moment Mobile View](https://ps.w.org/kiip/assets/screenshot-3.jpg)
+
 
 
 ##  Changelog  
