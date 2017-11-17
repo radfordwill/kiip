@@ -8,7 +8,7 @@
 
 **Requires at least:** 3.8  
 
-**Tested up to:** 4.9  
+**Tested up to:** 5.0
 
 Requires PHP: 5.6
 
@@ -31,6 +31,7 @@ Get a free developer key at:
 <https://api.kiip.me/register/dev_verify/>
 
 New
+Add shortcodes easily with WP editor buttons.
 Better placement in posts and pages.
 Widgets for your theme.
 
@@ -43,7 +44,8 @@ on how your theme loads wordpress shortcodes and widgets.
 
 #### Shortcodes
 
-Use shortcodes to load kiip moment rewards.
+Use shortcodes to load kiip moment rewards. Shortcodes can be added easily with new
+buttons in the WP editor.
 
 #### About kiip
 
@@ -90,6 +92,11 @@ It may show up here.
 
 ##  Changelog  
 
+### 3.1.6
+* easy to use shortcode buttons in the wordpress editor.
+* better fix for stylesheet moment container size problems.
+
+
 ### 3.1.5
 
 * better fix for stylesheet moment container size problems. 
@@ -123,6 +130,6 @@ It may show up here.
 ## Upgrade Notice
 
 
-### 3.1.5
-* better fix for stylesheet moment container size problems. 
-* heights are now set to 325px for widgets and shortcode container moments.
+### 3.1.6
+* easy to use shortcode buttons in the wordpress editor.
+* better fix for stylesheet moment container size problems.

@@ -3,10 +3,10 @@
 /**
  * Plugin Name: Kiip For Wordpress
  *
- * Description: Kiip.me plugin for Wordpress. Kiip is a marketing and monetization platform unique in style and user rewardplatforms. User retention is an important aspect for wordpress websites with subscribers, crm's and more. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention.
+ * Description: Kiip.me plugin for Wordpress. Simple to use with shortcodes, widgets and editor buttons. Kiip is a marketing and monetization platform unique in style and user reward platforms. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention.
  *
  * Plugin URI: http://radford.online
- * Version: 3.1.5
+ * Version: 3.1.6
  *
  * Author: Will Radford
  * Author URI: http:/radford.online
@@ -41,7 +41,7 @@ class kiip_for_wordpress {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '3.1.5';
+	const VERSION = '3.1.6';
 
 	/**
 	 * This plugin's folder name and location, text domain (also slug name for wordpress.org)
@@ -225,13 +225,14 @@ class kiip_for_wordpress {
 	public
 
 	function enqueue_styles_admin() {
+
+		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/kiip-for-wordpress-admin.css', array(), self::VERSION, 'all' );
 		// Load only on plugin id, id for $current_screen does not get called soon enough to load in header??
 		if ( 'kiip/admin/partials/kiip-for-wordpress-admin-display.php' != $_GET[ 'page' ] ) {
 			return;
 		}
 		//$current_page_id = self::check_current_screen_admin();
-		//if( $current_page_id == "kiip/admin/partials/kiip-for-wordpress-admin-display" ) {
-		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/kiip-for-wordpress-admin.css', array(), self::VERSION, 'all' );
+		//if( $current_page_id == "kiip/admin/partials/kiip-for-wordpress-admin-display" ) {		
 		// bootstrap 3  affects other admin pages when loaded without conditions to exclude it from the rest of the admin.
 		wp_enqueue_style( 'bootstrap-3.3.7', plugin_dir_url( __FILE__ ) . 'admin/css/bootstrap/bootstrap.min.css' );
 	}
@@ -491,7 +492,6 @@ class kiip_for_wordpress {
 		 * @since 3.1.3
 
 		 */
-
 	function kiip_check_for_shortcode() {
 		global $wp_query;
 		$posts = $wp_query->posts;
@@ -517,6 +517,116 @@ class kiip_for_wordpress {
 	}
 
 	/**
+	 * Add shortcode buttons to wordpress tiny mce plain text editor
+	 *
+	 * @since 3.1.6
+	 *
+	 */
+
+	function kiip_shortcode_button_script() {
+		if ( wp_script_is( "quicktags" ) ) {
+			?>
+			<script type="text/javascript">
+				//this function is used to add the shortcode buttons to the plain text editor
+				QTags.addButton(
+					"KMC_shortcode",
+					"Kiip Moment Container",
+					'[kiip_ad_shortcode type="contained"]'
+				);
+				QTags.addButton(
+					"KMA_shortcode",
+					"Kiip Moment Auto Popup ",
+					'[kiip_ad_shortcode type="fullscreen"]'
+				);
+				QTags.addButton(
+					"KMOS_shortcode",
+					"Kiip Moment On Scroll",
+					'[kiip_ad_shortcode type="fullscreen-onscroll"]'
+				);
+				QTags.addButton(
+					"KMOC_shortcode",
+					"Kiip Moment On Click",
+					'[kiip_ad_shortcode type="fullscreen-onclick"]'
+				);
+			</script>
+			<?php
+		}
+	}
+	// add shortcode buttons to the text editor
+	add_action( "admin_print_footer_scripts", "kiip_shortcode_button_script" );
+
+	/**
+	 * Add shortcode buttons to wordpress tiny mce rich text editor
+	 *
+	 * @since 3.1.6
+	 *
+	 */
+
+	function kiip_add_mce_button() {
+		global $typenow;
+		// check user permissions
+		if ( !current_user_can( 'edit_posts' ) && !current_user_can( 'edit_pages' ) ) {
+			return;
+		}
+		// verify the post type
+		if ( !in_array( $typenow, array( 'post', 'page' ) ) )
+			return;
+		// check if WYSIWYG is enabled
+		if ( get_user_option( 'rich_editing' ) == 'true' ) {
+			add_filter( "mce_external_plugins", "kiip_add_tinymce_plugin" );
+			add_filter( 'mce_buttons', 'kiip_register_button' );
+		}
+	}
+	add_action( 'admin_head', 'kiip_add_mce_button' );	
+
+    /**
+	 * create a button for wp editor
+	 *
+	 * @since 3.1.6
+	 *
+	 */
+
+	function kiip_add_tinymce_plugin( $plugin_array ) {
+		$plugin_array[ 'kiip_mce_button' ] = plugin_dir_url( __FILE__ ) . 'admin/js/shortcodes/tinymce-shortcode-buttons.js';
+		return $plugin_array;
+	}
+
+     /**
+	 * register the button for wp editor
+	 *
+	 * @since 3.1.6
+	 *
+	 */
+
+	function kiip_register_button( $buttons ) {
+		array_push( $buttons, "kiip_mce_button" );
+		return $buttons;
+	}
+
+     /**
+	 * Add params to admin js vars
+	 *
+	 * @since 3.1.6
+	 *
+	 */
+
+    function add_kiip_params_admin() {
+		global $current_screen;
+		$type = $current_screen->post_type;
+		$plugin_data = new kiip_for_wordpress();
+		$params = $plugin_data->kiip_options_array();
+		if (is_admin() && $type == 'post' || $type == 'page') {
+			?>
+			<script type="text/javascript">
+			var kiipsetClick = '<?php echo $params['kiipsetClick']; ?>';
+			</script>
+			<?php
+		}
+	}
+    // add params to admin js vars
+    add_action('admin_head','add_kiip_params_admin');
+
+     /**
 	 * Add plugin action links.
 	 *
 	 * Add a link to the settings page on the plugins.php page.
