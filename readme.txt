@@ -65,7 +65,9 @@ It may show up here.
 == Screenshots ==
 1. Kiip Moments
 2. Kiip Moment in a Widget
-3. Kiip Moment Mobile View
+3. Kiip Moment mobile view
+4. Kiip Moment Shortcode Button in the editor
+5. Kiip Moment Shortcode add buttons
 
 ==  Changelog  ==
 

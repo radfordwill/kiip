@@ -85,9 +85,14 @@ It may show up here.
 ### 2. Kiip Moment in a Widget
 ![Kiip Moment in a Widget](https://ps.w.org/kiip/assets/screenshot-2.jpg)
 
-### 3. Kiip Moment in a Widget
-![Kiip Moment Mobile View](https://ps.w.org/kiip/assets/screenshot-3.jpg)
+### 3. Kiip Moment mobile view
+![Kiip Moment mobile view](https://ps.w.org/kiip/assets/screenshot-3.jpg)
 
+### 4. Kiip Moment Shortcode Button in the editor
+![Kiip Moment Shortcode Button in the editor](https://ps.w.org/kiip/assets/screenshot-4.png)
+
+### 5. Kiip Moment Shortcode add buttons
+![Kiip Moment Shortcode add buttons](https://ps.w.org/kiip/assets/screenshot-5.png)
 
 
 ##  Changelog  
