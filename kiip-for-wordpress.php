@@ -131,8 +131,6 @@ class kiip_for_wordpress {
 	function initialize() {
 		//dummy
 		global $wpdb;
-
-
 	}
 
 	/*

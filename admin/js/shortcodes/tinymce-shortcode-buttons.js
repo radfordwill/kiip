@@ -41,11 +41,11 @@
 								body: [{
 									type: 'textbox',
 									name: 'link',
-									label: 'Your Link Url'
+									label: 'Link Url'
 								}, {
 									type: 'textbox',
 									name: 'text',
-									label: 'Your Link Text'
+									label: 'Link Text'
 								}, ],
 
 								onsubmit: function (e) {
@@ -57,23 +57,28 @@
 						text: 'Add a button',
 						onclick: function () {
 							editor.windowManager.open({
-								title: 'Insert Link',
+								title: 'Insert Button',
 								body: [{
 									type: 'textbox',
 									name: 'link',
-									label: 'Your Button Link'
+									label: 'Button Link'
 								}, {
 									type: 'textbox',
 									name: 'text',
-									label: 'Your Button Label'
+									label: 'Button Label'
+								},
+								   {
+									type: 'colorpicker',
+									name: 'text_color',
+									label: 'Button Text Color'
 								},
 								   {
 									type: 'colorpicker',
 									name: 'color',
-									label: 'Your Button Color'
+									label: 'Button Color'
 								},],
 								onsubmit: function (e) {
-									editor.insertContent('[kiip_ad_shortcode type="fullscreen-onclick"] <a onclick="ProcessResponse(); return false;" href="#' + e.data.link + '" style="background-color:' + e.data.color + '; border-radius: 8px; border: 1px solid #fff;" class="'+kiipsetClick+' button">' + e.data.text + '</a>');
+									editor.insertContent('[kiip_ad_shortcode type="fullscreen-onclick"] <a onclick="ProcessResponse(); return false;" href="#' + e.data.link + '" style="color:' + e.data.text_color + ';background-color:' + e.data.color + ';" class="'+kiipsetClick+' kiip-btn">' + e.data.text + '</a>');
 								}
 							});
 						}

@@ -40,10 +40,21 @@
 }
 }
 
-span.lbrack:before {
-  content: "\005B" !important;
+.kiip-btn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease-out !important;
 }
 
-span.rbrack:after {
-  content: "\005D" !important;
+.kiip-btn:hover {
+  transition: all 0.5s ease-in !important;
+  text-decoration: none;
 }

@@ -5,10 +5,9 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 /**
- * Provide a admin area view for the plugin
-
+ * Provides a admin area view for the plugin
  * Plugin URI: https://wordpress.org/plugins/kiip/
- * Version: 3.1.2
+ * Version: 3.1.6
  * @author     Will Radford <radford.will@gmail.com>
  * @link       http://radford.online/
  * @since      1.0.0
@@ -17,7 +16,8 @@ if ( !defined( 'WPINC' ) ) {
  */
 
 /**
- * Provides an admin area view for the plugin (WP CSS)
+ * Provides an admin area view for the plugi. Mobile views and wide screen views are supported 
+ * (Bootstrap 3 css\js and Wordpress css)
  *
  *
  */
@@ -37,7 +37,7 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4">
-				<img class="img-thumbnail" alt="kiip-for-wp" src="<?php echo $kiip_plugin_url; ?>assets/images/kiip-for-wp.png" width="150" height="150" alt=""/>
+				<img class="img-thumbnail" alt="Kiip for Wordpress" src="<?php echo $kiip_plugin_url; ?>assets/images/banner-772x250.jpg" width="375" height="145" alt=""/>
 				<p class="font-weight-bold small">Kiip is a marketing and monetization platform unique in style and user reward platforms.</p>
 				<p class="font-weight-bold small">User retention is an important aspect for wordpress websites with subscribers, crm's and more.</p>
 				<p class="font-weight-bold small">Reward your users and monetize your website today!</p>
@@ -86,9 +86,7 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 <span class="odd">3. </span><p>&#91;kiip_ad_shortcode type="fullscreen-onscroll"&#93;</p>'.''."".'
 
 <span class="even">4. </span><p>&#91;kiip_ad_shortcode type="fullscreen-onclick"&#93;</p>'.""
-
 													   ) ?></div>
-
 			</div>
 			<div class="col-lg-4 align-baseline">
 				<p>&nbsp;</p>
@@ -107,8 +105,7 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 					<p class="font-weight-bold">&nbsp;</p>
 					<p class="font-weight-bold">3. Onscroll Moment- Opens a moment immediately after the visitor get to the bottom of the page. </p>
 					<p class="font-weight-bold">&nbsp;</p>
-					<p class="font-weight-bold">4. Onclick Moment- Add a link or a button with the class you define in the admin and make anything a kiip poptart(popup) moment. Add a class to the link or button in the wordpress editor eg. <i>class = "kiip-moment"</i>
-					</p>
+					<p class="font-weight-bold">4. Onclick Moment- Add a link or a button in the wordpress editor.</p>
 					<p class="font-weight-bold">&nbsp;</p>
 				</div>
 			</div>
@@ -177,13 +174,19 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 	</div>
 	<footer class="footer">
 		<div class="container">
-			<span class="text-muted">
-				<p class="font-weight-bold L9">
+		
+		<div class="col-lg-4 align-baseline footer-span">
+		
+			<span class="text-white small">
+				<p class="font-weight-bold">
 					<?php echo( $plugin_name_version ); ?>
 				</p>
-				<p class="font-weight-bold small">*kiip logos and branding are reg. trademarks of <a class="footer-link dashicons dashicons-admin-links text-nowrap" href="http://kiip.me" title="Kiip Inc website" target="_blank">Kiip, Inc.</a>
+				<p class="font-weight-bold small footer-span">*kiip logos and branding are reg. trademarks of <a class="footer-link dashicons dashicons-admin-links text-nowrap" href="http://kiip.me" title="Kiip Inc website" target="_blank">Kiip, Inc.&trade;</a>
 				</p>
 			</span>
+			
+			</div>
+			
 			<?php if( isset($_GET['settings-updated']) ) { ?>
 			<div class=”updated”>
 				<div class="notice notice-success is-dismissible col-xs-4">
