@@ -74,8 +74,9 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 		</div>
 		<div class="row">
 			<div class="col-lg-4 ">
-
-					<p>NEW!<br> A widget has been added in WP Widgets page to use the container(small) moment anywhere you can add your widgets in themes.</p>
+					<p>NEW! <br><img class="rounded float-left img-thumbnail" src="<?php echo $kiip_plugin_url; ?>assets/images/mce-shortcode-scr-shot.png" alt="shortcodes screenshot"/><br>
+						<span class="float-right">Shortcode buttons in the post and page editor.  Easily add Kiip Moments with buttons, links and automatic pop ups.  Add the type of ad moment you want with just a few clicks!</span></p>
+			  <p>Widgets<br> A widget has been added in WP Widgets page to use the container(small) moment anywhere you can add your widgets in themes.</p>
 					<p></p>
 					<kbd>Shortcodes List</kbd><br>
 					<div class="microlight"><?php print('<span class="odd">1. </span><p>&#91;kiip_ad_shortcode type="fullscreen"&#93;</p>'."".'
@@ -93,6 +94,13 @@ $kiip_plugin_url = $plugin_data->kiip_the_url();
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
 				<div class="alert">
+				    <p class="font-weight-bold">&nbsp;</p>
+				    <p class="font-weight-bold">&nbsp;</p>
+				    <p class="font-weight-bold">&nbsp;</p>
+				    <p class="font-weight-bold">&nbsp;</p>
+				    <p class="font-weight-bold">&nbsp;</p>
+				    <p class="font-weight-bold">&nbsp;</p>
+				    <p class="font-weight-bold">&nbsp;</p>
 					<p class="font-weight-bold">1. Fullscreen Moment- Opens a kiip moment immediately when the visitor opens the page. </p>
 					<p class="font-weight-bold">&nbsp;</p>
 					<p class="font-weight-bold">2. Container Moment- Loads a kiip moment in a smaller container. Ideal for html widgets in sidebars. Sidebar must be a minimum of 400p px in width.</p>

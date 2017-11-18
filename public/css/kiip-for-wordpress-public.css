@@ -39,3 +39,11 @@
 	  margin-left: -4% !important;
 }
 }
+
+span.lbrack:before {
+  content: "\005B" !important;
+}
+
+span.rbrack:after {
+  content: "\005D" !important;
+}

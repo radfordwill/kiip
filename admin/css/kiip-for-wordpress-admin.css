@@ -31,3 +31,11 @@
 i.kiip-mce-icon {
     background-image: url('../../assets/images/kiip-logo-32x32-square.png');
 }
+
+span.lbrack:before {
+  content: "\005B" !important;
+}
+
+span.rbrack:after {
+  content: "\005D" !important;
+}

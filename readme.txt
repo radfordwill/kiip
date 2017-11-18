@@ -1,6 +1,6 @@
 === Kiip For Wordpress ===
 Contributors: willrad
-Tags: rewards, ads, revenue, kiip, adsense, monetize, retention
+Tags: rewards, ads, revenue, kiip, adsense, monetize, retention, monetization
 Donate link: paypal.me/kiipforwordpress
 Requires at least: 3.8
 Tested up to: 5.0

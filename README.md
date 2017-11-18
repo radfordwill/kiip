@@ -2,7 +2,7 @@
 
 **Contributors:** willrad  
 
-**Tags:** ads, revenue, kiip, adsense, monetize, rewards, retention  
+**Tags:** ads, revenue, kiip, adsense, monetize, rewards, retention , monetization
 
 **Donate link:** paypal.me/kiipforwordpress  
 
