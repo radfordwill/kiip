@@ -68,9 +68,20 @@
 									label: 'Button Label'
 								},
 								   {
-									type: 'colorpicker',
-									name: 'text_color',
-									label: 'Button Text Color'
+									type: 'colorbox',
+									name: 'colorbox',
+									label: 'Button Text Color',
+									   
+                            // text   : '#fff',
+                            values : [
+                                { text: 'White', value: 'white' },
+                                { text: 'Black', value: 'black' },								
+                                { text: 'Red', value: 'red' },								
+                                { text: 'Blue', value: 'blue' },								
+                                { text: 'Green', value: 'green' },								
+                                { text: 'Yellow', value: 'yellow' },								
+                                { text: 'Orange', value: 'orange' }
+                            ]
 								},
 								   {
 									type: 'colorpicker',
@@ -78,7 +89,7 @@
 									label: 'Button Color'
 								},],
 								onsubmit: function (e) {
-									editor.insertContent('[kiip_ad_shortcode type="fullscreen-onclick"] <a onclick="ProcessResponse(); return false;" href="#' + e.data.link + '" style="color:' + e.data.text_color + ';background-color:' + e.data.color + ';" class="'+kiipsetClick+' kiip-btn">' + e.data.text + '</a>');
+									editor.insertContent('[kiip_ad_shortcode type="fullscreen-onclick"] <a onclick="ProcessResponse(); return false;" href="#' + e.data.link + '" style="color:' + e.data.colorbox + ';background-color:' + e.data.color + ';" class="'+kiipsetClick+' kiip-btn">' + e.data.text + '</a>');
 								}
 							});
 						}

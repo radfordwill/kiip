@@ -73,9 +73,9 @@ A: You will need to sign up for a developer key at: https://api.kiip.me/register
 A: Use this plugin's support forum page or send an email to will@radford.online
 
 
-### Ask a question
+### Q: Ask a question
 
-It may show up here.
+A: It may show up here.
 
 
 ## Screenshots
@@ -96,6 +96,13 @@ It may show up here.
 
 
 ##  Changelog  
+
+### 3.1.7
+* !!bug fix - javascript loading in wrong pages\posts
+* translation ready, contact me to add your language.
+* use codemirror syntax highlighter properly.
+* file structure change
+
 
 ### 3.1.6
 * easy to use shortcode buttons in the wordpress editor.
@@ -135,6 +142,6 @@ It may show up here.
 ## Upgrade Notice
 
 
-### 3.1.6
+### 3.1.7
 * easy to use shortcode buttons in the wordpress editor.
-* better fix for stylesheet moment container size problems.
+* translation ready, contact me to add your language.

@@ -42,9 +42,11 @@ jQuery(document).ready(function () {
 
 	createContainer = function (kiip) {
 		var container = document.createElement('span');
+		if (document.getElementById('kiip-moment-container')){
 		var list = document.getElementById('kiip-moment-container');
 		kiip.setContainer(container);
 		list.appendChild(container);
+		}
 	};
 
 	// notification is a future function
@@ -53,6 +55,8 @@ jQuery(document).ready(function () {
 			return;
 		}
 	});
+	if (document.getElementById('kiip-moment-container')){
 	window.homeInit(kiip);
 	return;
+	}
 });

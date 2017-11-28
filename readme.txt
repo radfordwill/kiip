@@ -58,9 +58,9 @@ Copy and paste your key in the kiip for Wordpress admin page.
 
 A: Use this plugin's support forum page or send an email to will@radford.online
 
-= Ask a question =
+= Q: Ask a question =
 
-It may show up here.
+A: It may show up here.
 
 == Screenshots ==
 1. Kiip Moments
@@ -70,6 +70,12 @@ It may show up here.
 5. Kiip Moment Shortcode add buttons
 
 ==  Changelog  ==
+
+= 3.1.7 =
+* !!bug fix - javascript loading in wrong pages\posts
+* translation ready, contact me to add your language.
+* use codemirror syntax highlighter properly.
+* file structure change
 
 = 3.1.6 =
 * easy to use shortcode buttons in the wordpress editor.
@@ -99,6 +105,6 @@ It may show up here.
 * change functions use enqueue styles and javascript properly for admin page.
 
 == Upgrade Notice ==
-= 3.1.6 =
+= 3.1.7 =
 * easy to use shortcode buttons in the wordpress editor.
-* better fix for stylesheet moment container size problems.
+* translation ready, contact me to add your language.
