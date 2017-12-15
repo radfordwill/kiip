@@ -1,6 +1,6 @@
 # Kiip For Wordpress
 
-**Contributors:** willrad  
+**Contributors:** willrad, kiip
 
 **Tags:** ads, revenue, kiip, adsense, monetize, rewards, retention , monetization
 
