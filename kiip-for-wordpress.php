@@ -5,7 +5,7 @@
  * Description: Kiip.me plugin for Wordpress. Simple to use with shortcodes, widgets and editor buttons. Kiip is a marketing and monetization platform unique in style and user reward platforms. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention.
  *
  * Plugin URI: http://radford.online
- * Version: 3.1.7
+ * Version: 3.1.8
  * Author: Will Radford
  * Author URI: http:/radford.online
  * License: GPLv2
@@ -34,7 +34,7 @@ class kiip_for_wordpress {
 	 * This plugin's version
 	 */
 
-	const VERSION = '3.1.7';
+	const VERSION = '3.1.8';
 
 	/**
 	 * This plugin's folder name and location, text domain (also slug name for wordpress.org)
@@ -66,7 +66,7 @@ class kiip_for_wordpress {
 
 	/**
 	 * @var instance
-	 * 
+	 *
 	 */
 
 	public static $instance;
@@ -86,8 +86,8 @@ class kiip_for_wordpress {
 		if ( is_admin() ) {
 			$this->load_plugin_textdomain();
 			// load admin files
-			$this->enqueue_styles_admin();
-			$this->enqueue_scripts_admin();
+			add_action( 'admin_enqueue_scripts', array( $this,  'enqueue_styles_admin' ) );
+			add_action( 'admin_enqueue_scripts', array( $this,  'enqueue_scripts_admin' ) );
 			// add settings to db from settings api
 			$this->register_settings();
 			if ( is_multisite() ) {
@@ -98,9 +98,6 @@ class kiip_for_wordpress {
 				$this->admin_menu_link = self::FOLDERNAME . '/admin/partials/kiip-for-wordpress-admin-display.php';
 			}
 			register_activation_hook( __FILE__, array( & $this, 'activate' ) );
-			if ( $this->options[ 'deactivate_deletes_data' ] ) {
-				register_deactivation_hook( __FILE__, array( & $this, 'deactivate' ) );
-			}
 			add_action( $admin_menu, array( & $this, 'kiip_admin_menu' ) );
 			// add shortcode buttons to the text editor
 			add_action( 'admin_print_footer_scripts', array( & $this, 'kiip_shortcode_button_script' ) );
@@ -110,10 +107,10 @@ class kiip_for_wordpress {
 			add_action( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( & $this, 'kiip_plugin_action_link' ) );
 			// add shortcode button to rich editor
 			add_action( 'admin_head', array( & $this, 'kiip_add_mce_button' ) );
-		} else {
+		} else if (!is_admin()) {
 			// load public files
-			$this->enqueue_styles_public();
-			$this->enqueue_scripts_public();
+			add_action( 'wp_enqueue_scripts', array( $this,  'enqueue_styles_public' ) );
+			add_action( 'wp_enqueue_scripts', array( $this,  'enqueue_scripts_public' ) );
 			// add shortcodes
 			add_shortcode( 'kiip_ad_shortcode', array( $this, 'kiip_ad_shortcodes' ) );
 		}
@@ -233,7 +230,7 @@ class kiip_for_wordpress {
 
 	public
 
-	function enqueue_scripts_public( $file_name ) {
+	function enqueue_scripts_public( $file_name = '' ) {
 		// Call kiip.me web api to load ads. Admin settings contain required api key(s) and pertinent data.
 		// Data is returned in a function in this class'
 		wp_enqueue_script( 'kiip-ex', '//d3aq14vri881or.cloudfront.net/kiip.js', false );
@@ -255,7 +252,7 @@ class kiip_for_wordpress {
 	function enqueue_styles_admin() {
 		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/kiip-for-wordpress-admin.css', array(), self::VERSION, 'all' );
 		// Load only on plugin id orour settings page, id for $current_screen does not get called soon enough to load in header??
-		if ( 'kiip/admin/partials/kiip-for-wordpress-admin-display.php' != $_GET[ 'page' ] ) {
+		if ( ( 'kiip/admin/partials/kiip-for-wordpress-admin-display' != admin_get_current_screen() ) ) {
 			return;
 		}
 		// bootstrap 3 affects other admin pages when loaded without conditions to exclude it from the rest of the admin.
@@ -276,7 +273,7 @@ class kiip_for_wordpress {
 
 	function enqueue_scripts_admin() {
 		// get page id  or page name and load js only on this plugins settings page
-		if ( 'kiip/admin/partials/kiip-for-wordpress-admin-display.php' != $_GET[ 'page' ] ) {
+		if ( 'kiip/admin/partials/kiip-for-wordpress-admin-display' != admin_get_current_screen() ) {
 			return;
 		}
 		// admin js
@@ -357,7 +354,7 @@ class kiip_for_wordpress {
 		$this->enqueue_scripts_public( $file_name );
 
 		if ( $atts[ 'type' ] == 'contained' ) {
-			// maybe add this in sooner			
+			// maybe add this in sooner
 			ob_start();
 			?>
 			<span id='kiip-moment-container' class='kiip-moment-container-shortcode'></span>
@@ -448,12 +445,12 @@ class kiip_for_wordpress {
 	function add_kiip_params_admin() {
 		global $current_screen;
 		$type = $current_screen->post_type;
-		$params = self::kiip_options_array();
-		if ( is_admin() && $type == 'post' || $type == 'page' ) {
+		$params = kiip_for_wordpress::kiip_options_array();
+		$kiipsetClick = $params['kiipsetClick'];
+		if ( ($type == 'post') || ($type == 'page') ) {
 			?>
 			<script type="text/javascript">
-				var kiipsetClick = '<?php echo $params['
-				kiipsetClick ']; ?>';
+				var kiipsetClick = "<?php echo $kiipsetClick; ?>";
 			</script>
 			<?php
 		}
@@ -569,23 +566,7 @@ class kiip_for_wordpress {
 		$url = trailingslashit( plugins_url( basename( __DIR__ ) ) );
 		return ( $url );
 	}
-
-	/**
-	 * supposed to get the page id, runs too late for this plugin
-	 *
-	 * @since    3.1.4
-	 *
-	 */
-
-	public
-
-	function check_current_screen_admin() {
-		if ( !is_admin() ) return;
-		global $current_screen;
-		return ( $current_screen->id );
-	}
 }
-
 /**
  * The instantiated version of this plugin's main class
  */
@@ -616,6 +597,20 @@ function kiip_the_url() {
 	/* url to the folder. */
 	$url = trailingslashit( plugins_url( basename( __DIR__ ) ) );
 	return ( $url );
+}
+
+/**
+ * get the screen id, runs too late inside the main class
+ *
+ * @since    3.1.8
+ *
+ */
+
+function admin_get_current_screen() {
+    global $current_screen;
+    if ( ! isset( $current_screen ) )
+        return null;
+    return $current_screen->id;
 }
 
 /**

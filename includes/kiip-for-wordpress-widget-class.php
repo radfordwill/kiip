@@ -14,8 +14,7 @@ class kiip_Widget extends WP_Widget {
 	public
 
 	function __construct() {
-		$plugin_data = kiip_for_wordpress::init();
-		$kiip_plugin_lang = $plugin_data->TEXTDOMAIN;
+		$kiip_plugin_lang = kiip_for_wordpress::TEXTDOMAIN;
 		$widget_options = array( 'classname' => 'kiip_moment_widget', 'description' => __( 'Displays a container kiip moment (Native Reward) in a widget. Takes priority over shortcodes.', $kiip_plugin_lang ) );
 		parent::__construct( 'kiip_moment_widget', __( 'Kiip Moment Widget', $kiip_plugin_lang ), $widget_options );
 	}
@@ -64,7 +63,7 @@ class kiip_Widget extends WP_Widget {
  * Set up scripts and styles for the widget
  *
  * @since 3.1.3
- * 
+ *
  */
 
 function kiip_setup_enque_actions() {
@@ -85,6 +84,9 @@ function kiip_check_for_shortcode() {
 	$posts = $wp_query->posts;
 	$pattern = get_shortcode_regex();
 	foreach ( $posts as $post ) {
+
+
+		if (isset( $post->post_content )) {
 		if ( preg_match_all( '/' . $pattern . '/s', $post->post_content, $matches ) &&
 			array_key_exists( 2, $matches ) &&
 			in_array( 'kiip_ad_shortcode', $matches[ 2 ] ) ) {
@@ -92,6 +94,7 @@ function kiip_check_for_shortcode() {
 		} else {
 			add_action( 'wp_enqueue_scripts', 'kiip_setup_enque_actions' );
 		}
+	 }
 	}
 }
 
@@ -99,7 +102,7 @@ function kiip_check_for_shortcode() {
 add_action( 'wp', 'kiip_check_for_shortcode' );
 
 
-// Register the widget.	
+// Register the widget.
 function kiip_moment_register_widget() {
 	register_widget( 'kiip_Widget' );
 }

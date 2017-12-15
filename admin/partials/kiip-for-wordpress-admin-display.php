@@ -16,7 +16,7 @@ if ( !defined( 'WPINC' ) ) {
  */
 
 /**
- * Provides an admin area view for the plugi. Mobile views and wide screen views are supported 
+ * Provides an admin area view for the plugi. Mobile views and wide screen views are supported
  * (Bootstrap 3 css\js and Wordpress css)
  *
  *
@@ -25,7 +25,7 @@ if ( !defined( 'WPINC' ) ) {
 $plugin_data = kiip_for_wordpress::init();
 $plugin_name_version = $plugin_data->get_plugin_data()[ 'Name' ] . ' v' . $plugin_data->get_plugin_data()[ 'Version' ];
 $kiip_plugin_url = $plugin_data->kiip_the_url();
-$kiip_plugin_lang = $plugin_data->TEXTDOMAIN;
+$kiip_plugin_lang = kiip_for_wordpress::TEXTDOMAIN;
 $kiip_plugin_textarea = $plugin_data->kiip_admin_page_textarea();
 
 
@@ -42,9 +42,9 @@ $kiip_plugin_textarea = $plugin_data->kiip_admin_page_textarea();
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4">
-				<img class="img-thumbnail" alt="<?php _e('Kiip for Wordpress', $kiip_plugin_lang)?>" src="<?php echo $kiip_plugin_url; ?>assets/images/banner-772x250.jpg" width="375" height="145" alt=""/>
+				<img class="img-thumbnail" alt="<?php _e('Kiip for Wordpress', $kiip_plugin_lang)?>" src="<?php echo $kiip_plugin_url; ?>assets/images/banner-772x250.png" width="375" height="145" alt=""/>
 				<p class="font-weight-bold small">
-					<?php _e('Kiip is a marketing and monetization platform unique in style and user reward platforms.', $kiip_plugin_lang)?>
+					<?php echo admin_get_current_screen(); _e('Kiip is a marketing and monetization platform unique in style and user reward platforms.', $kiip_plugin_lang)?>
 				</p>
 				<p class="font-weight-bold small">
 					<?php _e('User retention is an important aspect for wordpress websites with subscribers, crm\'s and more.', $kiip_plugin_lang)?>

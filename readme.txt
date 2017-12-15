@@ -2,7 +2,7 @@
 Contributors: willrad, kiip
 Tags: rewards, ads, revenue, kiip, adsense, monetize, retention, monetization
 Donate link: paypal.me/kiipforwordpress
-Requires at least: 3.8
+Requires at least: 4.8.3
 Tested up to: 5.0
 Requires PHP: 5.6
 Stable tag: trunk
@@ -43,6 +43,13 @@ Reward your users and monetize your website today!
 Remove the hassle of targeted ads. Geo targeting and ad personalization
 are very important at Kiip.
 
+= Contribute =
+
+See the github repo: https://github.com/radfordwill/kiip
+
+Remove the hassle of targeted ads. Geo targeting and ad personalization
+are very important at Kiip.
+
 == Installation ==
 1. Add the plugin from your wordpress admin plugin page automatically (search "kiip") or upload the plugin to your blog.
 2. Activate the plugin and enter your kiip.me app key found at https://api.kiip.me/register/dev_verify/.
@@ -70,6 +77,11 @@ A: It may show up here.
 5. Kiip Moment Shortcode add buttons
 
 ==  Changelog  ==
+
+
+= 3.1.8 =
+* !!bug fixes - WP_DEBUG rules errors found and fixed.
+* add new banners from kiip - thanks sidd! (siddharth@kiip.me)
 
 = 3.1.7 =
 * !!bug fix - javascript loading in wrong pages\posts
@@ -105,6 +117,6 @@ A: It may show up here.
 * change functions use enqueue styles and javascript properly for admin page.
 
 == Upgrade Notice ==
-= 3.1.7 =
-* easy to use shortcode buttons in the wordpress editor.
-* translation ready, contact me to add your language.
+= 3.1.8 =
+* !!bug fixes - WP_DEBUG rules errors found and fixed.
+* add new banners from kiip - thanks sidd! (siddharth@kiip.me)

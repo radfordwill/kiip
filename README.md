@@ -6,7 +6,7 @@
 
 **Donate link:** paypal.me/kiipforwordpress  
 
-**Requires at least:** 3.8  
+**Requires at least:** 4.8.3
 
 **Tested up to:** 5.0
 
@@ -97,6 +97,12 @@ A: It may show up here.
 
 ##  Changelog  
 
+
+### 3.1.8
+* !!bug fixes - WP_DEBUG rules errors found and fixed.
+* add new banners from kiip - thanks sidd! (siddharth@kiip.me)
+
+
 ### 3.1.7
 * !!bug fix - javascript loading in wrong pages\posts
 * translation ready, contact me to add your language.
@@ -111,7 +117,7 @@ A: It may show up here.
 
 ### 3.1.5
 
-* better fix for stylesheet moment container size problems. 
+* better fix for stylesheet moment container size problems.
 * heights are now set to 325px for widgets and shortcode container moments.
 * add new index file to main folder for the plugin.
 
@@ -142,6 +148,6 @@ A: It may show up here.
 ## Upgrade Notice
 
 
-### 3.1.7
-* easy to use shortcode buttons in the wordpress editor.
-* translation ready, contact me to add your language.
+### 3.1.8
+* !!bug fixes - WP_DEBUG rules errors found and fixed.
+* add new banners from kiip - thanks sidd! (siddharth@kiip.me)
