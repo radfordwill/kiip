@@ -97,7 +97,6 @@ class kiip_for_wordpress {
 				$admin_menu = 'admin_menu';
 				$this->admin_menu_link = self::FOLDERNAME . '/admin/partials/kiip-for-wordpress-admin-display.php';
 			}
-			register_activation_hook( __FILE__, array( & $this, 'activate' ) );
 			add_action( $admin_menu, array( & $this, 'kiip_admin_menu' ) );
 			// add shortcode buttons to the text editor
 			add_action( 'admin_print_footer_scripts', array( & $this, 'kiip_shortcode_button_script' ) );
