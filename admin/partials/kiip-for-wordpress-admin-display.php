@@ -44,7 +44,7 @@ $kiip_plugin_textarea = $plugin_data->kiip_admin_page_textarea();
 			<div class="col-lg-4">
 				<img class="img-thumbnail" alt="<?php _e('Kiip for Wordpress', $kiip_plugin_lang)?>" src="<?php echo $kiip_plugin_url; ?>assets/images/banner-772x250.png" width="375" height="145" alt=""/>
 				<p class="font-weight-bold small">
-					<?php echo admin_get_current_screen(); _e('Kiip is a marketing and monetization platform unique in style and user reward platforms.', $kiip_plugin_lang)?>
+					<?php _e('Kiip is a marketing and monetization platform unique in style and user reward platforms.', $kiip_plugin_lang)?>
 				</p>
 				<p class="font-weight-bold small">
 					<?php _e('User retention is an important aspect for wordpress websites with subscribers, crm\'s and more.', $kiip_plugin_lang)?>
@@ -77,7 +77,7 @@ $kiip_plugin_textarea = $plugin_data->kiip_admin_page_textarea();
 									<input class="input-group-sm" type="text" name="amount" value="" required="required" placeholder="<?php _e('Enter amount', $kiip_plugin_lang)?>" class="regular-text ltr">
 								</td>
 								<td>
-									<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Make Donations with Paypal">
+									<input type="image" src="<?php echo $kiip_plugin_url; ?>assets/images/x-click-butcc-donate.gif" border="0" name="submit" alt="Make Donations with Paypal">
 								</td>
 							</tr>
 					</div>
