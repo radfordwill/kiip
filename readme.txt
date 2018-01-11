@@ -2,12 +2,12 @@
 Contributors: willrad, kiip
 Tags: rewards, ads, revenue, kiip, adsense, monetize, retention, monetization
 Donate link: paypal.me/kiipforwordpress
-Requires at least: 4.8.3
+Requires at least: 3.9
 Tested up to: 5.0
 Requires PHP: 5.6
 Stable tag: trunk
-License: GPLv2
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 kiip.me revenue plugin for Wordpress.
 Create real rewards for your users and make revenue at the same time!

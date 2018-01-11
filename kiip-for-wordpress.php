@@ -8,8 +8,8 @@
  * Version: 3.1.8
  * Author: Will Radford
  * Author URI: http:/radford.online
- * License: GPLv2
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * License: GPLv3
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * @package kiip
  * Text Domain: kiip
  * Domain Path: /languages
@@ -251,7 +251,7 @@ class kiip_for_wordpress {
 	function enqueue_styles_admin() {
 		wp_enqueue_style( self::NAME, plugin_dir_url( __FILE__ ) . 'admin/css/kiip-for-wordpress-admin.css', array(), self::VERSION, 'all' );
 		// Load only on plugin id orour settings page, id for $current_screen does not get called soon enough to load in header??
-		if ( ( 'kiip/admin/partials/kiip-for-wordpress-admin-display' != admin_get_current_screen() ) ) {
+		if ( ( 'kiip/admin/partials/kiip-for-wordpress-admin-display' != kiip_admin_get_current_screen() ) ) {
 			return;
 		}
 		// bootstrap 3 affects other admin pages when loaded without conditions to exclude it from the rest of the admin.
@@ -272,7 +272,7 @@ class kiip_for_wordpress {
 
 	function enqueue_scripts_admin() {
 		// get page id  or page name and load js only on this plugins settings page
-		if ( 'kiip/admin/partials/kiip-for-wordpress-admin-display' != admin_get_current_screen() ) {
+		if ( 'kiip/admin/partials/kiip-for-wordpress-admin-display' != kiip_admin_get_current_screen() ) {
 			return;
 		}
 		// admin js
@@ -291,7 +291,6 @@ class kiip_for_wordpress {
 	 */
 
 	public
-
 	function kiip_options_array() {
 		$kiip_publicKey = sanitize_text_field( get_option( 'public_key' ) );
 		$kiip_testmode = sanitize_html_class( get_option( 'is_test_mode' ), 'off' );
@@ -605,7 +604,7 @@ function kiip_the_url() {
  *
  */
 
-function admin_get_current_screen() {
+function kiip_admin_get_current_screen() {
     global $current_screen;
     if ( ! isset( $current_screen ) )
         return null;
