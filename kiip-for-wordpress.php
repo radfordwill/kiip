@@ -16,7 +16,7 @@
  *
  *
  */
-
+if ( ! class_exists( 'kiip_for_wordpress' ) ) {
 class kiip_for_wordpress {
 	/**
 	 * This plugin's identifier
@@ -89,7 +89,8 @@ class kiip_for_wordpress {
 			add_action( 'admin_enqueue_scripts', array( $this,  'enqueue_styles_admin' ) );
 			add_action( 'admin_enqueue_scripts', array( $this,  'enqueue_scripts_admin' ) );
 			// add settings to db from settings api
-			$this->register_settings();
+			//$this->register_settings();
+			add_action('admin_init', array(& $this, 'register_settings'));
 			if ( is_multisite() ) {
 				$admin_menu = 'network_admin_menu';
 				$this->admin_menu_link = self::FOLDERNAME . '/admin/partials/kiip-for-wordpress-admin-display.php';
@@ -177,16 +178,24 @@ class kiip_for_wordpress {
 	public
 
 	function register_settings() {
+		global $wp_version;
 		$checkbox_defaults = array(
 			'default' => 'off'
 		);
+		// wp 4.6 or greater uses third option to pass a default value
+    if ( version_compare( $wp_version, '4.6', '>=' ) ) {
+    register_setting( 'kiip-settings-group', 'is_test_mode', $checkbox_defaults );
+		register_setting( 'kiip-settings-group', 'test_mode_set_click', 'kiip-adclick' );
+		}
+		else {
+    register_setting( 'kiip-settings-group', 'is_test_mode' );
+		register_setting( 'kiip-settings-group', 'test_mode_set_click' );
+		}
 		//registering settings
 		register_setting( 'kiip-settings-group', 'public_key' );
-		register_setting( 'kiip-settings-group', 'is_test_mode', $checkbox_defaults );
 		register_setting( 'kiip-settings-group', 'test_mode_email' );
 		register_setting( 'kiip-settings-group', 'test_mode_userid' );
 		register_setting( 'kiip-settings-group', 'test_mode_post_moment' );
-		register_setting( 'kiip-settings-group', 'test_mode_set_click', 'kiip-adclick' );
 	}
 
 	/**
@@ -564,6 +573,7 @@ class kiip_for_wordpress {
 		$url = trailingslashit( plugins_url( basename( __DIR__ ) ) );
 		return ( $url );
 	}
+}
 }
 /**
  * The instantiated version of this plugin's main class
