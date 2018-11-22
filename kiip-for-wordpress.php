@@ -4,10 +4,10 @@
  *
  * Description: Kiip.me plugin for Wordpress. Simple to use with shortcodes, widgets and editor buttons. Kiip is a marketing and monetization platform unique in style and user reward platforms. Reward your users and monetize your website today! Make ad revenue. Create rewards and user retention.
  *
- * Plugin URI: http://radford.online
+ * Plugin URI: https://github.com/radfordwill/kiip
  * Version: 3.1.8
  * Author: Will Radford
- * Author URI: http:/radford.online
+ * Author URI: https://github.com/radfordwill/
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * @package kiip

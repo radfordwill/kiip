@@ -193,7 +193,7 @@ msgid "Kiip For Wordpress"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://radford.online"
+msgid "https://github.com/radfordwill/kiip"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -209,5 +209,5 @@ msgid "Will Radford"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http:/radford.online"
+msgid "https://github.com/radfordwill/"
 msgstr ""
